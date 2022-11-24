@@ -26,17 +26,22 @@ changeLanguage("en");
         </strong> such as <a href="https://example.com/">a cool link</a>!
       </Trans>
     </p>
-		<!-- <p>{data[0].date}</p>
-		<ul>
-			{data.map(item => (
-				<li>{item.name} {item.price}</li>)
-			)}
-		</ul> -->
+		<style>
+			/* .price {color: red;} */
+			h1 {color: brown;}
+			.price {color: green; font-weight: bold;}
+		</style>
 		<ul id="daily-menu"></ul>
 	</body>
 </html>
 
+<style is:inline>
+	#daily-menu li {display:flex; justify-content: space-between;}
+	.price {color: green; font-weight: bold;}
+</style>
+
 <script>
+
 	const ul = document.querySelector('#daily-menu');
 	let dailyMenu = "https://opensheet.elk.sh/1XW32FBLBLWsKdcg6fK6C0PB5-kNJXbGytTWnSNNaSmA/Czech"
 	if (document.documentElement.lang === "en") {
@@ -48,9 +53,16 @@ changeLanguage("en");
 		.then((data) => {
 			data.map(item => {
 				let li = document.createElement("li");
+				let spanName = document.createElement("span");
+				let spanPrice = document.createElement("span");
 				let name = document.createTextNode(item.name);
-				li.appendChild(name);
+				let price = document.createTextNode(item.price);
+				spanName.append(name);
+				spanPrice.append(price);
+				spanPrice.classList.add("price");
+				li.append(spanName, spanPrice);
 				ul.appendChild(li);
 			})
 		})
+
 </script>

@@ -26,15 +26,22 @@ changeLanguage("cs");
         </strong> such as <a href="https://example.com/">a cool link</a>!
       </Trans>
     </p>
+		<style>
+			/* .price {color: red;} */
+			h1 {color: brown;}
+			.price {color: green; font-weight: bold;}
+		</style>
 		<ul id="daily-menu"></ul>
 	</body>
 </html>
 
-<style>
-	.price {color: red; }
+<style is:inline>
+	#daily-menu li {display:flex; justify-content: space-between;}
+	.price {color: green; font-weight: bold;}
 </style>
 
 <script>
+
 	const ul = document.querySelector('#daily-menu');
 	let dailyMenu = "https://opensheet.elk.sh/1XW32FBLBLWsKdcg6fK6C0PB5-kNJXbGytTWnSNNaSmA/Czech"
 	if (document.documentElement.lang === "en") {
@@ -57,4 +64,5 @@ changeLanguage("cs");
 				ul.appendChild(li);
 			})
 		})
+
 </script>
