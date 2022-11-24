@@ -1,0 +1,10 @@
+{
+  "site": {
+    "title": "Můj úžasný web",
+    "description": "Zde je popis mého úžasného webu!"
+  },
+  "home": {
+    "title": "Vítejte na mém úžasném webu!",
+    "subtitle": "Jedná se o <0>složitější</0> řetězec k překladu, smíchaný s <1>prvky html</1>, jako je <2>skvělý odkaz</2>!"
+  }
+}
