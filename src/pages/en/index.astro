@@ -26,5 +26,31 @@ changeLanguage("en");
         </strong> such as <a href="https://example.com/">a cool link</a>!
       </Trans>
     </p>
+		<!-- <p>{data[0].date}</p>
+		<ul>
+			{data.map(item => (
+				<li>{item.name} {item.price}</li>)
+			)}
+		</ul> -->
+		<ul id="daily-menu"></ul>
 	</body>
 </html>
+
+<script>
+	const ul = document.querySelector('#daily-menu');
+	let dailyMenu = "https://opensheet.elk.sh/1XW32FBLBLWsKdcg6fK6C0PB5-kNJXbGytTWnSNNaSmA/Czech"
+	if (document.documentElement.lang === "en") {
+		dailyMenu = "https://opensheet.elk.sh/1XW32FBLBLWsKdcg6fK6C0PB5-kNJXbGytTWnSNNaSmA/English"
+	}
+
+	await fetch(dailyMenu)
+		.then ((res) => res.json())
+		.then((data) => {
+			data.map(item => {
+				let li = document.createElement("li");
+				let name = document.createTextNode(item.name);
+				li.appendChild(name);
+				ul.appendChild(li);
+			})
+		})
+</script>
