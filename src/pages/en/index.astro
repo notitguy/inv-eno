@@ -14,6 +14,7 @@ changeLanguage("en");
 		<meta name="generator" content={Astro.generator} />
 		<title>{t("site.title")}</title>
 		<meta name="description" content={t("site.description")} />
+		<meta name="robots" content="noindex, nofollow" />
     <HeadHrefLangs />
 	</head>
 	<body>
@@ -35,6 +36,7 @@ changeLanguage("en");
 </style>
 
 <script>
+
 	const ul = document.querySelector('#daily-menu');
 	let dailyMenu = "https://opensheet.elk.sh/1XW32FBLBLWsKdcg6fK6C0PB5-kNJXbGytTWnSNNaSmA/Czech"
 	if (document.documentElement.lang === "en") {
@@ -57,4 +59,5 @@ changeLanguage("en");
 				ul.appendChild(li);
 			})
 		})
+
 </script>
