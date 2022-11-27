@@ -26,15 +26,13 @@ changeLanguage("en");
         </strong> such as <a href="https://example.com/">a cool link</a>!
       </Trans>
     </p>
-		<!-- <p>{data[0].date}</p>
-		<ul>
-			{data.map(item => (
-				<li>{item.name} {item.price}</li>)
-			)}
-		</ul> -->
 		<ul id="daily-menu"></ul>
 	</body>
 </html>
+
+<style>
+	.price {color: red; }
+</style>
 
 <script>
 	const ul = document.querySelector('#daily-menu');
@@ -48,8 +46,14 @@ changeLanguage("en");
 		.then((data) => {
 			data.map(item => {
 				let li = document.createElement("li");
+				let spanName = document.createElement("span");
+				let spanPrice = document.createElement("span");
 				let name = document.createTextNode(item.name);
-				li.appendChild(name);
+				let price = document.createTextNode(item.price);
+				spanName.append(name);
+				spanPrice.append(price);
+				spanPrice.classList.add("price");
+				li.append(spanName, spanPrice);
 				ul.appendChild(li);
 			})
 		})
