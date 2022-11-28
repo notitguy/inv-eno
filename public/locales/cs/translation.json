@@ -1,7 +1,17 @@
 {
   "site": {
-    "title": "Můj úžasný web",
+    "title": "EnoTrattoria - Italské Restaurace Invitaly",
     "description": "Zde je popis mého úžasného webu!"
+  },
+  "header": {
+    "about": "O nás",
+    "menu": "Menu",
+    "contact": "Kontakty",
+    "order": "Objednat"
+  },
+  "showcase": {
+    "h1": "Autentická Italská kuchyně v Praze",
+    "p": "Naše restaurace Invitaly spoléhá zejména na dovezených produktech z Itálie, abychom dosáhli nejlepší autentičnosti italské kuchyně."
   },
   "home": {
     "title": "Vítejte na mém úžasném webu!",

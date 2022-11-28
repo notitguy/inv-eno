@@ -1,7 +1,13 @@
 ---
-//astro-i18next
 import i18next, { t, changeLanguage } from "i18next";
 import { Trans, HeadHrefLangs, LanguageSelector } from "astro-i18next/components";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import DailyMenu from "../components/DailyMenu.astro";
+import Showcase from "../components/Showcase.astro";
+
+import "../assets/css/reset.css";
+import "../assets/css/global.css";
 
 changeLanguage("cs");
 ---
@@ -18,6 +24,8 @@ changeLanguage("cs");
     <HeadHrefLangs />
 	</head>
 	<body>
+		<Header />
+		<Showcase />
 		<LanguageSelector showFlag={true} class="my-select-class" />
 		<h1>{t("home.title")}</h1>
     <p>
@@ -27,38 +35,7 @@ changeLanguage("cs");
         </strong> such as <a href="https://example.com/">a cool link</a>!
       </Trans>
     </p>
-		<ul id="daily-menu"></ul>
+		<!-- <DailyMenu /> -->
+		<Footer />
 	</body>
 </html>
-
-<style is:inline>
-	#daily-menu li {display:flex; justify-content: space-between;}
-	.price {color: green; font-weight: bold;}
-</style>
-
-<script>
-
-	const ul = document.querySelector('#daily-menu');
-	let dailyMenu = "https://opensheet.elk.sh/1XW32FBLBLWsKdcg6fK6C0PB5-kNJXbGytTWnSNNaSmA/Czech"
-	if (document.documentElement.lang === "en") {
-		dailyMenu = "https://opensheet.elk.sh/1XW32FBLBLWsKdcg6fK6C0PB5-kNJXbGytTWnSNNaSmA/English"
-	}
-
-	await fetch(dailyMenu)
-		.then ((res) => res.json())
-		.then((data) => {
-			data.map(item => {
-				let li = document.createElement("li");
-				let spanName = document.createElement("span");
-				let spanPrice = document.createElement("span");
-				let name = document.createTextNode(item.name);
-				let price = document.createTextNode(item.price);
-				spanName.append(name);
-				spanPrice.append(price);
-				spanPrice.classList.add("price");
-				li.append(spanName, spanPrice);
-				ul.appendChild(li);
-			})
-		})
-
-</script>
