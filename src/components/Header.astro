@@ -53,13 +53,12 @@ import logo from '../assets/img/invitaly_logo.png'
     gap: var(--gutter);
     flex: 1; /* places logo in the middle */
     justify-content: flex-end;
-
-    & > * {
-      z-index: 1;
-    }
+  }
+  .burger {
+    z-index: 1;
   }
   section.menu-container {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     width: min(100vw, 500px);
@@ -73,7 +72,7 @@ import logo from '../assets/img/invitaly_logo.png'
   }
   div.overlay {
       opacity: 0;
-      translate: -100%;
+      translate: 100%;
       content: "";
       position: fixed;
       top: 0;
@@ -90,7 +89,7 @@ import logo from '../assets/img/invitaly_logo.png'
 </style>
 
 <script>
-  const menuElements = document.querySelectorAll('.burger, .overlay, nav a');
+  const menuElements = document.querySelectorAll('.burger, .overlay, .menu-container a');
   const overlay = document.querySelectorAll('.overlay, .menu-container');
 
   menuElements.forEach(item => {

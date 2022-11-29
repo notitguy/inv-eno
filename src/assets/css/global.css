@@ -9,7 +9,7 @@
   */
 }
 body {
-  overflow: hidden;
+  overflow-x: hidden;
   padding: var(--gutter) clamp(1rem, 5%, 3rem);
 }
 ul[role="menu"] {
