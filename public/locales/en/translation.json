@@ -9,12 +9,12 @@
     "contact": "Contact",
     "order": "Order"
   },
-  "showcase": {
+  "hero": {
     "h1": "Real Italian Food in Prague",
     "p": "The Invitaly kitchen relies mostly on imported products from Italy to meet the authenticity of Italian cuisine."
   },
   "home": {
-    "title": "Welcome to my awesome website!",
+    "title": "English version",
     "subtitle": "This is a <0>more complex</0> string to translate, mixed with <1>html elements</1>, such as a <2>a cool link</2>!"
   }
 }

@@ -9,12 +9,12 @@
     "contact": "Kontakty",
     "order": "Objednat"
   },
-  "showcase": {
+  "hero": {
     "h1": "Autentická Italská kuchyně v Praze",
     "p": "Naše restaurace Invitaly spoléhá zejména na dovezených produktech z Itálie, abychom dosáhli nejlepší autentičnosti italské kuchyně."
   },
   "home": {
-    "title": "Vítejte na mém úžasném webu!",
+    "title": "Česká verze",
     "subtitle": "Jedná se o <0>složitější</0> řetězec k překladu, smíchaný s <1>prvky html</1>, jako je <2>skvělý odkaz</2>!"
   }
 }

@@ -1,41 +1,24 @@
 ---
-import i18next, { t, changeLanguage } from "i18next";
-import { Trans, HeadHrefLangs, LanguageSelector } from "astro-i18next/components";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import DailyMenu from "../components/DailyMenu.astro";
-import Showcase from "../components/Showcase.astro";
-
 import "../assets/css/reset.css";
 import "../assets/css/global.css";
+
+import i18next, { t, changeLanguage } from "i18next";
+import { Trans, LanguageSelector } from "astro-i18next/components";
+import Head from "../components/Head.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Footer from "../components/Footer.astro";
+import DailyMenu from "../components/DailyMenu.astro";
 
 changeLanguage("cs");
 ---
 
 <html lang={i18next.language}>
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{t("site.title")}</title>
-		<meta name="description" content={t("site.description")} />
-		<meta name="robots" content="noindex, nofollow" />
-    <HeadHrefLangs />
-	</head>
+	<Head />
 	<body>
 		<Header />
-		<Showcase />
-		<LanguageSelector showFlag={true} class="my-select-class" />
-		<h1>{t("home.title")}</h1>
-    <p>
-      <Trans i18nKey="home.subtitle">
-        This is a <em>more complex</em> string to translate, mixed with <strong
-          >html elements
-        </strong> such as <a href="https://example.com/">a cool link</a>!
-      </Trans>
-    </p>
-		<!-- <DailyMenu /> -->
+		<Hero />
+		<LanguageSelector showFlag={true} />
 		<Footer />
 	</body>
 </html>

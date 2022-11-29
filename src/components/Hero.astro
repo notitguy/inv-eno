@@ -1,0 +1,80 @@
+---
+import { t } from "i18next";
+import image from '../assets/img/hero/invitaly_vezenska_16.jpg'
+---
+<section class="hero grid container">
+  <!-- <img src="https://picsum.photos/seed/picsum/1500/800?grayscale" alt="Invitaly EnoTrattoria"> -->
+  <div>
+    <img src={image} alt="Invitaly EnoTrattoria" width="1500" height="800">
+  </div>
+  <div class="header">
+    <h1>{t("hero.h1")}</h1>
+    <p>{t("hero.p")}</p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-block: var(--gutter);
+  }
+  div:has(img) {
+    grid-column: 1 / 13;
+    grid-row: 1 / 3;
+    position: relative;
+    z-index: -1;
+    /* animations */
+    animation-duration: 1.6s;
+    animation-timing-function: var(--easing);
+    animation-delay: 0s;
+    animation-name: heroClip;
+
+    &::after {
+      content:'';
+      position:absolute;
+      left:0; top:0;
+      width:100%; height:100%;
+      display:block;
+      background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+    }
+  }
+  img {
+    object-fit: cover;
+  }
+  .header {
+    grid-column: 3 / 11;
+    grid-row: 2 / 3;
+    width: 100%;
+    padding: var(--gutter);
+    text-align: center;
+    color: white;
+  }
+  h1 {
+    font-size: clamp(2rem, 4vw, 4rem);
+    line-height: 1.3;
+    text-transform: uppercase;
+    margin-bottom: var(--gutter);
+  }
+
+  @media (width < 1025px) {
+    img {
+      max-height: 50vh;
+    }
+    .header {
+      grid-column: 1 / 13;
+      grid-row: 2 / 3;
+    }
+  }
+  @media (width < 769px) {
+    p {
+      display: none;
+    }
+  }
+  @keyframes heroClip {
+    0% {
+      clip-path: inset(10%);
+    }
+    100% {
+      clip-path: inset(0);
+    }
+  }
+</style>
