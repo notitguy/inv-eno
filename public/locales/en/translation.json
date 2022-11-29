@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "EnoTrattoria - Invitaly Italian Restaurant",
-    "description": "Here is the description of my awesome website!"
+    "description": "EN meta!"
   },
   "header": {
     "about": "About",
@@ -13,8 +13,15 @@
     "h1": "Real Italian Food in Prague",
     "p": "The Invitaly kitchen relies mostly on imported products from Italy to meet the authenticity of Italian cuisine."
   },
-  "home": {
-    "title": "English version",
-    "subtitle": "This is a <0>more complex</0> string to translate, mixed with <1>html elements</1>, such as a <2>a cool link</2>!"
+  "footer": {
+    "reservation": "Reservations",
+    "call": "Call",
+    "order": "Order online",
+    "openingHours": "Opening hours",
+    "daysOpen": "Tuesday – Saturday",
+    "daysClosed": "Sunday – Monday",
+    "closed": "Closed",
+    "openMap": "Open map",
+    "instaCaption": "Fresh and tasty updates on our Instagram"
   }
 }

@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "EnoTrattoria - Italské Restaurace Invitaly",
-    "description": "Zde je popis mého úžasného webu!"
+    "description": "CS meta"
   },
   "header": {
     "about": "O nás",
@@ -13,8 +13,15 @@
     "h1": "Autentická Italská kuchyně v Praze",
     "p": "Naše restaurace Invitaly spoléhá zejména na dovezených produktech z Itálie, abychom dosáhli nejlepší autentičnosti italské kuchyně."
   },
-  "home": {
-    "title": "Česká verze",
-    "subtitle": "Jedná se o <0>složitější</0> řetězec k překladu, smíchaný s <1>prvky html</1>, jako je <2>skvělý odkaz</2>!"
+  "footer": {
+    "reservation": "Rezervace",
+    "call": "Zavolejte",
+    "order": "Objednat online",
+    "openingHours": "Otevírací doba",
+    "daysOpen": "Úterý – Sobota",
+    "daysClosed": "Neděle – Pondělí",
+    "closed": "Zavřeno",
+    "openMap": "Mapa",
+    "instaCaption": "Čerstvé a chutné novinky na našem Instagramu"
   }
 }
