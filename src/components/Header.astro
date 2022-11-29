@@ -1,15 +1,12 @@
 ---
 import { t } from "i18next";
+import Menu from "./snippets/Menu.astro";
 
 import logo from '../assets/img/branding/invitaly_logo--small.svg'
 ---
 <header class="container">
   <nav class="desktop-menu">
-    <ul role="menu">
-      <li><a href="#about">{t("header.about")}</a></li>
-      <li><a href="#menu">{t("header.menu")}</a></li>
-      <li><a href="#contact">{t("header.contact")}</a></li>
-    </ul>
+    <Menu />
   </nav>
   <a class="logo" href="/">
     <img src={logo} alt="Invitaly logo" width="100">
@@ -17,11 +14,7 @@ import logo from '../assets/img/branding/invitaly_logo--small.svg'
   <div class="overlay"></div>
   <nav class="mobile-menu">
     <section class="menu-container">
-      <ul role="menu">
-        <li><a href="#about">{t("header.about")}</a></li>
-        <li><a href="#menu">{t("header.menu")}</a></li>
-        <li><a href="#contact">{t("header.contact")}</a></li>
-      </ul>
+      <Menu />
       <p>Iste et, velit explicabo nam incidunt porro nobis autem voluptates repellendus error quaerat asperiores, in ratione perspiciatis. Deleniti maxime repudiandae ipsam totam est enim aut, amet animi laboriosam eos eaque. Quod cumque dolores aperiam enim maxime doloribus magnam labore. Totam delectus tempora, accusamus veritatis repudiandae ex quo. Esse necessitatibus voluptatem repudiandae nihil quibusdam obcaecati, soluta aperiam ipsa. Tempore esse optio aliquam sint debitis? Sequi?</p>
     </section>
     <a href="#" class="order">{t("header.order")}</a>
@@ -37,11 +30,6 @@ import logo from '../assets/img/branding/invitaly_logo--small.svg'
   }
   nav.desktop-menu {
     flex: 1; /* places logo in the middle */
-
-    & ul[role="menu"] {
-      display: flex;
-      gap: var(--gutter);
-    }
   }
     @media (width < 769px) {
     nav.desktop-menu {

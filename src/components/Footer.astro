@@ -1,62 +1,14 @@
 ---
-import { t } from "i18next";
-
-import wolt from '../assets/img/branding/wolt.png';
-import instagram from '../assets/img/icon/instagram--color.svg';
+import Reservation from "./snippets/Reservation.astro";
+import Address from "./snippets/Address.astro";
 ---
 <footer class="grid container">
-  <section>
-    <h3>{t("footer.reservation")}:</h3>
-    <ul style="margin-bottom: var(--gutter-l);">
-      <li>{t("footer.call")}: <a href="tel:+420222313185" target="_blank">+420 222 313 185</a>
-      </li>
-      <li>Email: <a href="mailto:enotrattoria@invitaly.cz" target="_blank">enotrattoria@invitaly.cz</a>
-      </li>
-      <!-- <li>
-        {t("footer.order")}: <a href="https://wolt.com/en/cze/prague/restaurant/invitaly" target="_blank" rel="nofollow">
-          <img src={wolt} width="55px" height="20px" style="margin: -0.4rem 0 0 1rem;" alt="Order Invitaly">
-        </a>
-      </li> -->
-    </ul>
-    <h3>{t("footer.openingHours")}:</h3>
-    <div class="opening-hours">
-      <p>{t("footer.daysOpen")}:<br>{t("footer.daysClosed")}:</p>
-      <p>11:00 - 22:00<br>{t("footer.closed")}</p>
-    </div>
-  </section>
-  <section>
-    <h3>Invitaly EnoTrattoria</h3>
-    <address>
-      <ul>
-        <li>Vězeňská 4, 110 00 Praha, Czechia<br>
-        (<a href="https://goo.gl/maps/QFHo98UqRi7Puspj6" target="_blank"> {t("footer.openMap")} 📍</a>)
-        </li>
-        <li>
-          <a href="tel:+420222313185" target="_blank">+420 222 313 185</a>
-        </li>
-        <li>
-          <a href="mailto:enotrattoria@invitaly.cz" target="_blank">enotrattoria@invitaly.cz</a>
-        </li>
-      </ul>
-      <a href="https://www.instagram.com/invitaly_enotrattoria/" target="_blank" class="social-link">
-        <img src={instagram} alt="Invitaly instagram" width="28" height="28"> {t("footer.instaCaption")}
-      </a>
-    </address>
-  </section>
+  <Reservation visible />
+  <Address />
 </footer>
 
 <style>
   footer.grid {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 30ch), 1fr));
-  }
-  .opening-hours {
-    display: flex;
-    gap: var(--gutter);
-  }
-  .social-link {
-    display: flex;
-    align-items: center;
-    gap: var(--gutter);
-    margin-top: var(--gutter-l);
   }
 </style>

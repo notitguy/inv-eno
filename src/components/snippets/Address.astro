@@ -1,0 +1,32 @@
+---
+import { t } from "i18next";
+import instagram from '../../assets/img/icon/instagram--color.svg';
+---
+<section>
+  <h3>Invitaly EnoTrattoria</h3>
+  <address>
+    <ul>
+      <li>Vězeňská 4, 110 00 Praha, Czechia<br>
+      (<a href="https://goo.gl/maps/QFHo98UqRi7Puspj6" target="_blank"> {t("footer.openMap")} 📍</a>)
+      </li>
+      <li>
+        <a href="tel:+420222313185" target="_blank">+420 222 313 185</a>
+      </li>
+      <li>
+        <a href="mailto:enotrattoria@invitaly.cz" target="_blank">enotrattoria@invitaly.cz</a>
+      </li>
+    </ul>
+    <a href="https://www.instagram.com/invitaly_enotrattoria/" target="_blank" class="social-link">
+      <img src={instagram} alt="Invitaly instagram" width="28" height="28"> {t("footer.instaCaption")}
+    </a>
+  </address>
+</section>
+
+<style>
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: var(--gutter);
+    margin-top: var(--gutter-l);
+  }
+</style>

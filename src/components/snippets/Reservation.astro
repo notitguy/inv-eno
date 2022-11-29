@@ -1,0 +1,40 @@
+---
+import { t } from "i18next";
+
+import wolt from '../assets/img/branding/wolt.png';
+
+interface Props {
+  phone?: string;
+  email?: string;
+  wolt?: string;
+  hours?: string;
+  visible?: boolean;
+}
+const { phone = "+420 222 313 185", email = "enotrattoria@invitaly.cz", hours = "11:00 - 22:00", visible=false } = Astro.props;
+---
+  <section>
+    <h3>{t("footer.reservation")}:</h3>
+    <ul style="margin-bottom: var(--gutter-l);">
+      <li>{visible && <span>{t("footer.call")}:</span> }<a href="tel:+420222313185" target="_blank">{phone}</a>
+      </li>
+      <li>{visible && <span>Email: </span>}<a href={`mailto:${email}`} target="_blank">{email}</a>
+      </li>
+      <!-- <li>
+        {t("footer.order")}: <a href="https://wolt.com/en/cze/prague/restaurant/invitaly" target="_blank" rel="nofollow">
+          <img src={wolt} width="55px" height="20px" style="margin: -0.4rem 0 0 1rem;" alt="Order Invitaly">
+        </a>
+      </li> -->
+    </ul>
+    <h3>{t("footer.openingHours")}:</h3>
+    <div class="opening-hours">
+      <p>{t("footer.daysOpen")}:<br>{t("footer.daysClosed")}:</p>
+      <p>{hours}<br>{t("footer.closed")}</p>
+    </div>
+  </section>
+
+  <style>
+    .opening-hours {
+      display: flex;
+      gap: var(--gutter);
+    }
+  </style>
