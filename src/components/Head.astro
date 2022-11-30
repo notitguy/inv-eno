@@ -1,14 +1,18 @@
 ---
 import { t } from "i18next";
 import { HeadHrefLangs } from "astro-i18next/components";
+
+import appleTouchIcon from '../assets/img/favicon/apple-touch-icon.png'
+import favicon32 from '../assets/img/favicon/favicon-32x32.png'
+import favicon16 from '../assets/img/favicon/favicon-16x16.png'
 ---
 
 <head>
   <meta charset="utf-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon}>
+  <link rel="icon" type="image/png" sizes="32x32" href={favicon32}>
+  <link rel="icon" type="image/png" sizes="16x16" href={favicon16}>
   <meta name="viewport" content="width=device-width" />
   <meta name="generator" content={Astro.generator} />
   <title>{t("site.title")}</title>
