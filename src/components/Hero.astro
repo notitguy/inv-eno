@@ -1,7 +1,10 @@
 ---
 import { t } from "i18next";
 import image from '../assets/img/hero/invitaly_vezenska_16.jpg'
+import '../../node_modules/locomotive-scroll/dist/locomotive-scroll.min.css'
 ---
+<script src="src/assets/js/loco.js" type="module"/>
+
 <section class="hero grid container">
   <!-- <img src="https://picsum.photos/seed/picsum/1500/800?grayscale" alt="Invitaly EnoTrattoria"> -->
   <div>
@@ -53,6 +56,21 @@ import image from '../assets/img/hero/invitaly_vezenska_16.jpg'
     line-height: 1.3;
     text-transform: uppercase;
     margin-bottom: var(--gutter);
+    /* animations */
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-duration: 1.6s;
+    animation-timing-function: var(--easing);
+    animation-delay: 1s;
+    animation-name: heroHeader;
+  }
+  p {
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-duration: 1.6s;
+    animation-timing-function: var(--easing);
+    animation-delay: 1.1s;
+    animation-name: heroHeader;
   }
 
   @media (width < 1025px) {
@@ -71,10 +89,20 @@ import image from '../assets/img/hero/invitaly_vezenska_16.jpg'
   }
   @keyframes heroClip {
     0% {
-      clip-path: inset(20%);
+      clip-path: inset(0 100% 0 100%);
     }
     100% {
       clip-path: inset(0);
+    }
+  }
+  @keyframes heroHeader {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
     }
   }
 </style>

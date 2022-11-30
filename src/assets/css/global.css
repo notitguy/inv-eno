@@ -3,7 +3,7 @@
   --gutter: 1.5rem;
   --gutter-l: 3rem;
   --font: 'Merriweather Sans', sans-serif;
-  --easing: cubic-bezier(0.76, 0, 0.24, 1); /*easeInOutQuart*/
+  --easing: cubic-bezier(0.83, 0, 0.17, 1); /*easeInOutQuint*/
   /* --mobile: 375px;
   --tablet: 768px;
   --desktop: 1024px;
