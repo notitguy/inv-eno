@@ -12,8 +12,10 @@
     "i18n:generate": "astro-i18next generate"
   },
   "dependencies": {
+    "@astrojs/preact": "^1.2.0",
     "astro": "^1.6.11",
-    "astro-i18next": "^1.0.0-beta.14"
+    "astro-i18next": "^1.0.0-beta.14",
+    "preact": "^10.11.3"
   },
   "devDependencies": {
     "postcss-preset-env": "^7.8.3"

@@ -1,13 +1,19 @@
 ---
 import { t } from "i18next";
-import image from '../assets/img/hero/invitaly_vezenska_16.jpg'
+
+// Get random hero image
+import RandomImage from '../components/islands/RandomImage';
+const allImgs = await Astro.glob('../assets/img/hero/*.jpg');
+const images = allImgs.map(img =>(img.default));
+const alt = "Invitaly EnoTrattoria";
+const width = "1500";
+const height = "800";
 ---
-<script src="src/assets/js/loco.js" type="module"/>
+<!-- <script src="src/assets/js/loco.js" type="module"/> -->
 
 <section class="hero grid container">
-  <!-- <img src="https://picsum.photos/seed/picsum/1500/800?grayscale" alt="Invitaly EnoTrattoria"> -->
   <div>
-    <img src={image} alt="Invitaly EnoTrattoria" width="1500" height="800">
+    <RandomImage images={images} alt={alt} width={width} height={height} />
   </div>
   <div class="header">
     <h1>{t("hero.h1")}</h1>
