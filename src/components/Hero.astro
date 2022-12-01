@@ -18,7 +18,6 @@ const {
   height = "800",
   } = Astro.props;
 ---
-<!-- <script src="src/assets/js/loco.js" type="module"/> -->
 
 <section class="hero grid container">
   <div>
@@ -43,7 +42,7 @@ const {
     animation-timing-function: var(--easing);
     animation-delay: 0s;
     animation-name: heroClip;
-
+    
     &::after {
       content:'';
       position:absolute;
@@ -85,7 +84,7 @@ const {
     animation-delay: 1.1s;
     animation-name: heroHeader;
   }
-
+  
   @media (width < 1025px) {
     img {
       max-height: 50vh;
@@ -118,4 +117,6 @@ const {
       opacity: 1;
     }
   }
-</style>
+  </style>
+
+  <!-- <script src="src/assets/js/loco.js" type="module"/> -->

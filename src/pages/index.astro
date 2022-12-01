@@ -3,12 +3,10 @@ import "../assets/css/reset.css";
 import "../assets/css/global.css";
 
 import i18next, { changeLanguage } from "i18next";
-import { LanguageSelector } from "astro-i18next/components";
 import Head from "../components/Head.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import Footer from "../components/Footer.astro";
-import DailyMenu from "../components/snippets/DailyMenu.astro";
 
 changeLanguage("cs");
 ---
@@ -18,7 +16,6 @@ changeLanguage("cs");
 	<body>
 		<Header />
 		<Hero />
-		<LanguageSelector showFlag={true} />
 		<Footer />
 	</body>
 </html>
