@@ -5,15 +5,24 @@ import { t } from "i18next";
 import RandomImage from '../components/islands/RandomImage';
 const allImgs = await Astro.glob('../assets/img/hero/*.jpg');
 const images = allImgs.map(img =>(img.default));
-const alt = "Invitaly EnoTrattoria";
-const width = "1500";
-const height = "800";
+
+interface Props {
+  alt?: string;
+  width?: string;
+  height?: string;
+  className?: string;
+}
+const {
+  alt = "Invitaly EnoTrattoria",
+  width = "1500",
+  height = "800",
+  } = Astro.props;
 ---
 <!-- <script src="src/assets/js/loco.js" type="module"/> -->
 
 <section class="hero grid container">
   <div>
-    <RandomImage images={images} alt={alt} width={width} height={height} />
+    <RandomImage client:load images={images} className alt={alt} width={width} height={height} />
   </div>
   <div class="header">
     <h1>{t("hero.h1")}</h1>
@@ -29,7 +38,6 @@ const height = "800";
     grid-column: 1 / 13;
     grid-row: 1 / 3;
     position: relative;
-    z-index: -1;
     /* animations */
     animation-duration: 1.6s;
     animation-timing-function: var(--easing);

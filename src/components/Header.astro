@@ -3,7 +3,9 @@ import { t } from "i18next";
 import Menu from "./snippets/Menu.astro";
 
 import logo from '../assets/img/branding/invitaly_logo--small.svg'
+import LanguageSelector from "./snippets/LanguageSelector.astro";
 ---
+
 <header class="container">
   <nav class="desktop-menu">
     <Menu />
@@ -17,7 +19,8 @@ import logo from '../assets/img/branding/invitaly_logo--small.svg'
       <Menu />
       <p>Iste et, velit explicabo nam incidunt porro nobis autem voluptates repellendus error quaerat asperiores, in ratione perspiciatis. Deleniti maxime repudiandae ipsam totam est enim aut, amet animi laboriosam eos eaque. Quod cumque dolores aperiam enim maxime doloribus magnam labore. Totam delectus tempora, accusamus veritatis repudiandae ex quo. Esse necessitatibus voluptatem repudiandae nihil quibusdam obcaecati, soluta aperiam ipsa. Tempore esse optio aliquam sint debitis? Sequi?</p>
     </section>
-    <a href="#" class="order">{t("header.order")}</a>
+    <!-- <a href="#" class="order">{t("header.order")}</a> -->
+    <LanguageSelector />
     <div class="burger">Menu</div>
   </nav>
 </header>
@@ -36,14 +39,14 @@ import logo from '../assets/img/branding/invitaly_logo--small.svg'
       display: none;
     }
   } 
+  .overlay, .mobile-menu, .burger {
+    z-index: 1;
+  }
   nav.mobile-menu {
     display: flex;
     gap: var(--gutter);
     flex: 1; /* places logo in the middle */
     justify-content: flex-end;
-  }
-  .burger {
-    z-index: 1;
   }
   section.menu-container {
     position: fixed;

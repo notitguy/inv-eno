@@ -1,0 +1,25 @@
+---
+import i18next from "i18next";
+import { localizeUrl } from "astro-i18next";
+import { localizePath } from "astro-i18next";
+import ISO6991 from "iso-639-1";
+
+const supportedLanguages = i18next.languages;
+const currentLanguage = i18next.language;
+const { pathname } = Astro.url;
+const currentUrl = Astro.url.href;
+---
+
+{
+  supportedLanguages
+  .filter(supportedLanguage => supportedLanguage !== currentLanguage)
+  .map((supportedLanguage) => {
+
+    const nativeName = ISO6991.getNativeName(supportedLanguage);
+
+    return (
+      <a href={localizePath(pathname, supportedLanguage)} title={nativeName}>{supportedLanguage}</a>
+    );
+  })
+    
+}
