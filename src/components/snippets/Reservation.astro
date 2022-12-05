@@ -14,7 +14,7 @@ const { phone = "+420 222 313 185", email = "enotrattoria@invitaly.cz", hours = 
 ---
   <section>
     <h3>{t("footer.reservation")}:</h3>
-    <ul style="margin-bottom: var(--gutter-l);">
+    <ul style="margin-bottom: var(--gutter);">
       <li>{visible && <span>{t("footer.call")}:</span> }<a href="tel:+420222313185" target="_blank">{phone}</a>
       </li>
       <li>{visible && <span>Email: </span>}<a href={`mailto:${email}`} target="_blank">{email}</a>
@@ -33,6 +33,11 @@ const { phone = "+420 222 313 185", email = "enotrattoria@invitaly.cz", hours = 
   </section>
 
   <style>
+  @media (width >= 1024px) {
+    section {
+      grid-column: 2 / 6;
+    }
+  }
     .opening-hours {
       display: flex;
       gap: var(--gutter);

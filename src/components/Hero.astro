@@ -19,9 +19,9 @@ const {
   } = Astro.props;
 ---
 
-<section class="hero grid container">
+<section class="hero grid">
   <div>
-    <RandomImage client:load images={images} className alt={alt} width={width} height={height} />
+    <RandomImage client:load images={images} className width={width} height={height} alt={alt} />
   </div>
   <div class="header">
     <h1>{t("hero.h1")}</h1>
@@ -109,7 +109,7 @@ const {
   }
   @keyframes heroHeader {
     0% {
-      transform: translateY(100%);
+      transform: translateY(50%);
       opacity: 0;
     }
     100% {

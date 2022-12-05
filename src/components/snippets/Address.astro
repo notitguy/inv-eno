@@ -23,10 +23,15 @@ import instagram from '../../assets/img/icon/instagram--color.svg';
 </section>
 
 <style>
+  @media (width >= 1024px) {
+    section {
+      grid-column: 7 / 11;
+    }
+  }
   .social-link {
     display: flex;
     align-items: center;
     gap: var(--gutter);
-    margin-top: var(--gutter-l);
+    margin-top: var(--gutter);
   }
 </style>
