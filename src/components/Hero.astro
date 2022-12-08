@@ -31,7 +31,7 @@ const {
 
 <style>
   .hero {
-    padding-block: var(--gutter);
+    padding-top: var(--gutter);
   }
   div:has(img) {
     grid-column: 1 / 13;
@@ -68,7 +68,9 @@ const {
     line-height: 1.3;
     text-transform: uppercase;
     margin-bottom: var(--gutter);
-    /* animations */
+  }
+  /* animations */
+  h1, p {
     opacity: 0;
     animation-fill-mode: forwards;
     animation-duration: 1.6s;
@@ -77,12 +79,7 @@ const {
     animation-name: heroHeader;
   }
   p {
-    opacity: 0;
-    animation-fill-mode: forwards;
-    animation-duration: 1.6s;
-    animation-timing-function: var(--easing);
     animation-delay: 1.1s;
-    animation-name: heroHeader;
   }
   
   @media (width < 1025px) {
