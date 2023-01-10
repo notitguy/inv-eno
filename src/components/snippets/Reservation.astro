@@ -13,7 +13,7 @@ interface Props {
 const { phone = "+420 222 313 185", email = "enotrattoria@invitaly.cz", hours = "11:00 - 22:00", visible=false } = Astro.props;
 ---
   <section>
-    <h3>{t("footer.reservation")}:</h3>
+    <h3 class="small">{t("footer.reservation")}:</h3>
     <ul style="margin-bottom: var(--gutter);">
       <li>{visible && <span>{t("footer.call")}: </span> }<a href="tel:+420222313185" target="_blank">{phone}</a>
       </li>
@@ -25,7 +25,7 @@ const { phone = "+420 222 313 185", email = "enotrattoria@invitaly.cz", hours = 
         </a>
       </li> -->
     </ul>
-    <h3>{t("footer.openingHours")}:</h3>
+    <h3 class="small">{t("footer.openingHours")}:</h3>
     <div class="opening-hours">
       <p>{t("footer.daysOpen")}:<br>{t("footer.daysClosed")}:</p>
       <p>{hours}<br>{t("footer.closed")}</p>
@@ -33,11 +33,11 @@ const { phone = "+420 222 313 185", email = "enotrattoria@invitaly.cz", hours = 
   </section>
 
   <style>
-  @media (width >= 1024px) {
+  /* @media (width >= 1024px) {
     section {
       grid-column: 2 / 6;
     }
-  }
+  } */
     .opening-hours {
       display: flex;
       gap: var(--gutter);

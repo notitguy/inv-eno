@@ -1,15 +1,12 @@
-<section class="grid --centered">
+<section class="container --centered">
 	<h2>Daily menu</h2>
 	<ul id="daily-menu"></ul>
 </section>
 
 <style>
 @media (width >= 768px) {
-		h2 {
-			grid-column: 2 / 10;
-		}
 		#daily-menu {
-			grid-column: 2 / 10;
+			max-width: 60rem;
 		}
 	}
 </style>
@@ -21,12 +18,14 @@
 		justify-content: space-between;
 		gap: 0 var(--gutter);
 		padding: 0.7rem 0;
-    border-bottom: 1px dotted #ddd;
 	}
 	.price {
-		/* color: green; */
 		font-weight: bold;
 		min-width: 60px;
+	}
+	.price::after {
+		content: ',-';
+		font-size: 0.8rem;
 	}
 </style>
 
@@ -48,7 +47,7 @@
 				let name = document.createTextNode(item.name);
 				let price = document.createTextNode(item.price);
 				spanName.append(name);
-				spanPrice.append(price, ",- Kč");
+				spanPrice.append(price);
 				spanPrice.classList.add("price");
 				li.append(spanName, spanPrice);
 				ul.appendChild(li);

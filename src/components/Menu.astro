@@ -5,7 +5,7 @@ interface Props {
 const { menuUrl = "https://invitaly.cz/files/menu_vezenska.pdf" } = Astro.props;
 ---
 
-<section class="grid">
+<section class="container" id="menu">
   <a href={menuUrl} target="_blank">
     <div>
       <h3>Our Menu</h3>
@@ -35,7 +35,6 @@ const { menuUrl = "https://invitaly.cz/files/menu_vezenska.pdf" } = Astro.props;
     }
   }
   h3 {
-    text-transform: uppercase;
     font-size: clamp(2rem, 4vw, 3rem);
   }
   p {
@@ -71,9 +70,5 @@ const { menuUrl = "https://invitaly.cz/files/menu_vezenska.pdf" } = Astro.props;
       }
     }
   }
-  @media (width >= 768px) {
-    a {
-      grid-column: 2 / 12;
-    }
-  }
+
 </style>
