@@ -1,0 +1,69 @@
+<section class="grid">
+  <a href="#">
+    <div class="content">
+      <h3>Our Menu</h3>
+      <p>Sit tempora minus asperiores blanditiis autem non beatae incidunt, est nobis aperiam neque alias, esse earum eaque consectetur corrupti numquam odit officia.</p>
+    </div>
+    <div class="arrow">
+      <div class="__body"></div>
+      <div class="__head">
+        <span class="__part one"></span>
+        <span class="__part two"></span>
+      </div>
+    </div>
+  </a>
+</section>
+
+<style>
+  a {
+    border-block: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gutter-l);
+    padding-block: var(--gutter-l);
+    
+    &:hover {
+      background-color: #f5f5f5;
+    }
+  }
+  h3 {
+    text-transform: uppercase;
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+  /* Arrow */
+  .arrow {
+    & .__body {
+      width: 100px;
+      height: 1px;
+      display: flex;
+      background-color: black;
+    }
+    & .__head {
+      position: relative;
+
+      & .__part {
+        position: absolute;
+        right: -3px;
+        bottom: 0;
+        width: 20px;
+        height: 1px;
+        background-color: black;
+
+        &.one {
+          transform: rotate(45deg);
+          top: -7px;
+        }
+        &.two {
+          transform: rotate(-45deg);
+          bottom: -7px;
+        }
+      }
+    }
+  }
+  @media (width >= 768px) {
+    a {
+      grid-column: 2 / 12;
+    }
+  }
+</style>

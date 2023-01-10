@@ -2,8 +2,9 @@
   --container: 95rem;
   --gutter: 1.5rem;
   --gutter-l: 3rem;
-  --font: 'Merriweather Sans', sans-serif;
+  --font: 'Sarabun', sans-serif;
   --easing: cubic-bezier(0.76, 0, 0.24, 1); /*easeInOutQuart*/
+  --black-1: hsl(0deg 0% 0% / 75%)
   /* --mobile: 375px;
   --tablet: 768px;
   --desktop: 1024px;
@@ -21,16 +22,18 @@
 body {
   max-width: var(--container);
   margin: 0 auto;
-  font-family: var(--font);
   line-height: 2;
   overflow-x: hidden;
   padding: var(--gutter) clamp(1rem, 5%, 3rem);
+  font-family: var(--font);
+  color: var(--black-1);
 }
 section, footer {
   padding-block: var(--gutter-l);
 }
 h2 {
   font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 800;
   line-height: 1.3;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
@@ -54,7 +57,7 @@ address {
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--gutter);
+  gap: var(--gutter-l);
 }
 @media (width >= 768px) {
   .grid {

@@ -1,8 +1,33 @@
-<ul id="daily-menu"></ul>
+<section class="grid --centered">
+	<h2>Daily menu</h2>
+	<ul id="daily-menu"></ul>
+</section>
+
+<style>
+@media (width >= 768px) {
+		h2 {
+			grid-column: 2 / 10;
+		}
+		#daily-menu {
+			grid-column: 2 / 10;
+		}
+	}
+</style>
 
 <style is:inline>
-	#daily-menu li {display:flex; justify-content: space-between;}
-	.price {color: green; font-weight: bold;}
+	
+	#daily-menu li {
+		display:flex;
+		justify-content: space-between;
+		gap: 0 var(--gutter);
+		padding: 0.7rem 0;
+    border-bottom: 1px dotted #ddd;
+	}
+	.price {
+		/* color: green; */
+		font-weight: bold;
+		min-width: 60px;
+	}
 </style>
 
 <script>
@@ -23,7 +48,7 @@
 				let name = document.createTextNode(item.name);
 				let price = document.createTextNode(item.price);
 				spanName.append(name);
-				spanPrice.append(price);
+				spanPrice.append(price, ",- Kč");
 				spanPrice.classList.add("price");
 				li.append(spanName, spanPrice);
 				ul.appendChild(li);
