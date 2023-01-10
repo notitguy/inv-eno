@@ -1,6 +1,13 @@
+---
+interface Props {
+  menuUrl?: string;
+}
+const { menuUrl = "https://invitaly.cz/files/menu_vezenska.pdf" } = Astro.props;
+---
+
 <section class="grid">
-  <a href="#">
-    <div class="content">
+  <a href={menuUrl} target="_blank">
+    <div>
       <h3>Our Menu</h3>
       <p>Sit tempora minus asperiores blanditiis autem non beatae incidunt, est nobis aperiam neque alias, esse earum eaque consectetur corrupti numquam odit officia.</p>
     </div>
@@ -30,6 +37,9 @@
   h3 {
     text-transform: uppercase;
     font-size: clamp(2rem, 4vw, 3rem);
+  }
+  p {
+    max-width: 600px;
   }
   /* Arrow */
   .arrow {
