@@ -1,14 +1,25 @@
-<section class="container --centered">
-	<h2>Daily menu</h2>
+<section class="container">
+	<h3 id="daily-menu-header">Daily menu</h3>
+	<i>12:00 - 15:00</i>
 	<ul id="daily-menu"></ul>
 </section>
 
 <style>
-@media (width >= 768px) {
+
+	h3 {
+		font-size: clamp(2rem, 4vw, 3rem);
+	}
+
+	@media (width >= 768px) {
+		section {
+			text-align: center;
+		}
 		#daily-menu {
 			max-width: 60rem;
+			margin: 0 auto;
 		}
 	}
+
 </style>
 
 <style is:inline>
@@ -18,6 +29,7 @@
 		justify-content: space-between;
 		gap: 0 var(--gutter);
 		padding: 0.7rem 0;
+		line-height: 1.5;
 	}
 	.price {
 		font-weight: bold;
@@ -31,27 +43,43 @@
 
 <script>
 
+	const header = document.querySelector('#daily-menu-header');
 	const ul = document.querySelector('#daily-menu');
 	let dailyMenu = "https://opensheet.elk.sh/1XW32FBLBLWsKdcg6fK6C0PB5-kNJXbGytTWnSNNaSmA/Czech"
 	if (document.documentElement.lang === "en") {
 		dailyMenu = "https://opensheet.elk.sh/1XW32FBLBLWsKdcg6fK6C0PB5-kNJXbGytTWnSNNaSmA/English"
 	}
 
-	await fetch(dailyMenu)
-		.then ((res) => res.json())
-		.then((data) => {
-			data.map(item => {
-				let li = document.createElement("li");
-				let spanName = document.createElement("span");
-				let spanPrice = document.createElement("span");
-				let name = document.createTextNode(item.name);
-				let price = document.createTextNode(item.price);
-				spanName.append(name);
-				spanPrice.append(price);
-				spanPrice.classList.add("price");
-				li.append(spanName, spanPrice);
-				ul.appendChild(li);
-			})
-		})
+	async function getMenu() {
+    try {
+        let res = await fetch(dailyMenu);
+        return await res.json();
+    } catch (error) {
+        console.log('yo, not fetching here', error);
+    }
+	}
+
+	async function renderMenu() {
+    let menu = await getMenu();
+		menu.map(item => {
+			const li = document.createElement("li");
+			const spanName = document.createElement("span");
+			const spanPrice = document.createElement("span");
+			const name = document.createTextNode(item.name);
+			const price = document.createTextNode(item.price);
+			spanName.append(name);
+			spanPrice.append(price);
+			spanPrice.classList.add("price");
+			li.append(spanName, spanPrice);
+			ul.appendChild(li);
+		});
+		const spanDate = document.createElement("span");
+		const date = document.createTextNode(menu[0].date);
+		spanDate.append(date);
+		spanDate.classList.add("date");
+		header.after(spanDate);
+	}
+
+	renderMenu();
 
 </script>

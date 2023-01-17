@@ -8,6 +8,10 @@
   --easing: cubic-bezier(0.76, 0, 0.24, 1); /*easeInOutQuart*/
   --c-primary: hsl(120 39% 25%);
   --c-black: hsl(0 0% 0% / 75%);
+  /*animations*/
+  --scale-out: scale3d(0.9, 0.9, 0.9);
+  --scale-in: scale3d(1.2, 1.2, 1.2);
+  --scale-0: scale3d(1, 1, 1);
   /* --mobile: 375px;
   --tablet: 768px;
   --desktop: 1024px;
@@ -67,6 +71,7 @@ ul:not([role="list"]) {
 address {
   font-style: inherit;
 }
+
 /* Utilities */
 .grid {
   display: grid;
@@ -82,4 +87,79 @@ address {
   max-width: var(--container);
   margin: 0 auto;
   padding: var(--gutter-l)
+}
+
+/* Animations */
+.animate, .animate img {
+  animation-fill-mode: forwards;
+
+  &.animate {
+    animation-duration: 1.6s;
+    animation-timing-function: var(--easing);
+  }
+}
+.toRight img {
+  clip-path: inset(0 100% 0 0);
+
+  &.animate {
+    animation-name: toRight;
+  }
+}
+@keyframes toLeft {
+  0% {
+    clip-path: inset(0 0 0 100%);
+    /* opacity: 0; */
+  }
+  100% {
+    clip-path: inset(0);
+    /* opacity: 1; */
+  }
+}
+@keyframes toRight {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0);
+  }
+}
+@keyframes toLeft {
+  0% {
+    clip-path: inset(0 0 0 100%);
+  }
+  100% {
+    clip-path: inset(0);
+  }
+}
+
+.zoom {
+  transform: var(--scale-out);
+
+  &.animate {
+    animation-name: zoomIn;
+  }
+}
+.zoom img {
+  transform: var(--scale-in);
+
+  &.animate {
+    animation-name: zoomOut;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: var(--scale-out);
+  }
+  100% {
+    transform: var(--scale-0);
+  }
+}
+@keyframes zoomOut {
+  0% {
+    transform: var(--scale-in);
+  }
+  100% {
+    transform: var(--scale-0);
+  }
 }

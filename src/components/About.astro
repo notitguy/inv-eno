@@ -10,9 +10,9 @@ import img3 from "../assets/img/hero/unused/invitaly_vezenska_16.jpg"
     <p>Illo voluptatibus laboriosam qui totam quasi velit assumenda sint mollitia dolore odio quidem, ut repudiandae cumque. Ipsum laudantium quia adipisci fugit ex praesentium nihil eveniet? Esse doloremque animi in facere.</p>
     <p>Cum facere tempora dolor nam! Dicta non suscipit cumque rerum maiores ipsa accusantium esse error, soluta pariatur cum repudiandae at magni ducimus aliquam temporibus repellendus minima ex fugit, neque tempora.</p>
   </div>
-  <div class="img1"><img class="observe" src={img1} alt="Invitaly"></div>
-  <div class="img2"><img class="observe" src={img2} alt="Invitaly"></div>
-  <div class="img3"><img class="observe" src={img3} alt="Invitaly"></div>
+  <div class="img1 toRight observe"><img src={img1} alt="Invitaly"></div>
+  <div class="img2 zoom observe"><img src={img2} alt="Invitaly"></div>
+  <div class="img3 zoom observe"><img src={img3} alt="Invitaly"></div>
 </section>
 
 <style>
@@ -23,58 +23,9 @@ import img3 from "../assets/img/hero/unused/invitaly_vezenska_16.jpg"
   div {
     overflow: hidden;
   }
-  img {
-    --initial-scale: scale3d(0.9, 0.9, 0.9);
-    --final-scale: scale3d(1, 1, 1);
-    animation-fill-mode: forwards;
 
-    &.animate {
-      animation-duration: 1.6s;
-      animation-timing-function: var(--easing);
-    }
-  }
-
-  .img1 img {
-    clip-path: inset(0 99% 0 0);
-
-    &.animate {
-      animation-name: toRight;
-    }
-  }
-  .img2 img, .img3 img {
-    transform: var(--initial-scale);
-
-    &.animate {
-      animation-name: zoomIn;
-    }
-  }
-  .img3 img{
-    animation-delay: 0.6s;
-  }
-
-  @keyframes toRight {
-    0% {
-      clip-path: inset(0 100% 0 0);
-    }
-    100% {
-      clip-path: inset(0);
-    }
-  }
-  @keyframes toLeft {
-    0% {
-      clip-path: inset(0 0 0 100%);
-    }
-    100% {
-      clip-path: inset(0);
-    }
-  }
-  @keyframes zoomIn {
-    0% {
-      transform: var(--initial-scale);
-    }
-    100% {
-      transform: var(--final-scale);
-    }
+  .img3, .img3 img {
+    animation-delay: 0.3s;
   }
 
   @media (width >= 1024px) {
@@ -103,32 +54,3 @@ import img3 from "../assets/img/hero/unused/invitaly_vezenska_16.jpg"
   }
 
 </style>
-
-<script>
-
-  const sections = document.querySelectorAll('.observe');
-
-  const options = {
-    threshold: 0
-  };
-
-  const observer = new IntersectionObserver(function(entries, observer) {
-    entries.forEach(entry => {
-
-      if (!entry.isIntersecting) { // if not intersecting, do nothing
-        return;
-      }
-
-      console.log(entry.target);
-
-      entry.target.classList.toggle('animate');
-
-      observer.unobserve(entry.target); // stop obsserving after doing it once
-    })
-  }, options);
-
-  sections.forEach(section =>{
-    observer.observe(section);
-  });
-
-</script>

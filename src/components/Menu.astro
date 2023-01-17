@@ -1,4 +1,9 @@
 ---
+
+import img1 from "../assets/img/body/20221027vezenska_piatti_12.jpg"
+import img2 from "../assets/img/body/20221027vezenska_piatti_2_square.jpg"
+import img3 from "../assets/img/hero/unused/invitaly_vezenska_16.jpg"
+
 interface Props {
   menuUrl?: string;
 }
@@ -8,20 +13,46 @@ const { menuUrl = "https://invitaly.cz/files/menu_vezenska.pdf" } = Astro.props;
 <section class="container" id="menu">
   <a href={menuUrl} target="_blank">
     <div>
-      <h3>Our Menu</h3>
+      <h2>Our Menu</h2>
       <p>Sit tempora minus asperiores blanditiis autem non beatae incidunt, est nobis aperiam neque alias, esse earum eaque consectetur corrupti numquam odit officia.</p>
     </div>
     <div class="arrow">
-      <div class="__body"></div>
-      <div class="__head">
-        <span class="__part one"></span>
-        <span class="__part two"></span>
+      <div class="arrow__body"></div>
+      <div class="arrow__head">
+        <span class="part-one"></span>
+        <span class="part-two"></span>
       </div>
     </div>
   </a>
+  <div class="gallery">
+    <div class="zoom observe">
+      <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=900&h=400&q=80" alt="">
+    </div>
+    <div class="zoom observe">
+      <img src={img1} alt="" width="300" height="400">
+    </div>
+  </div>
 </section>
 
 <style>
+
+  .gallery {
+    display: flex;
+    gap: var(--gutter-l);
+    margin: var(--gutter-l) auto;
+
+    & > div {
+      /* flex: 33%; */
+
+      & img {
+        object-fit: cover;
+      }
+    }
+    /* & > div:nth-child(2n) {
+      margin-top: 2rem;
+    } */
+  }
+
   a {
     border-block: 1px solid #ccc;
     display: flex;
@@ -34,24 +65,23 @@ const { menuUrl = "https://invitaly.cz/files/menu_vezenska.pdf" } = Astro.props;
       background-color: #f5f5f5;
     }
   }
-  h3 {
-    font-size: clamp(2rem, 4vw, 3rem);
-  }
+
   p {
     max-width: 600px;
   }
+
   /* Arrow */
   .arrow {
-    & .__body {
+    & .arrow__body {
       width: 100px;
       height: 1px;
       display: flex;
       background-color: black;
     }
-    & .__head {
+    & .arrow__head {
       position: relative;
 
-      & .__part {
+      & > * {
         position: absolute;
         right: -3px;
         bottom: 0;
@@ -59,11 +89,11 @@ const { menuUrl = "https://invitaly.cz/files/menu_vezenska.pdf" } = Astro.props;
         height: 1px;
         background-color: black;
 
-        &.one {
+        &.part-one {
           transform: rotate(45deg);
           top: -7px;
         }
-        &.two {
+        &.part-two {
           transform: rotate(-45deg);
           bottom: -7px;
         }
