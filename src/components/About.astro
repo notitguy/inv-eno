@@ -6,7 +6,7 @@ import img3 from "../assets/img/hero/unused/invitaly_vezenska_16.jpg"
 
 <section class="grid container" id="about">
   <h2>Bringing the best traditions</h2>
-  <div class="header">
+  <div class="description">
     <p>Illo voluptatibus laboriosam qui totam quasi velit assumenda sint mollitia dolore odio quidem, ut repudiandae cumque. Ipsum laudantium quia adipisci fugit ex praesentium nihil eveniet? Esse doloremque animi in facere.</p>
     <p>Cum facere tempora dolor nam! Dicta non suscipit cumque rerum maiores ipsa accusantium esse error, soluta pariatur cum repudiandae at magni ducimus aliquam temporibus repellendus minima ex fugit, neque tempora.</p>
   </div>
@@ -19,17 +19,17 @@ import img3 from "../assets/img/hero/unused/invitaly_vezenska_16.jpg"
     h2, div {
       grid-column: span 12;
   }
-  /* animations */
-  div {
-    overflow: hidden;
+  h2 {
+    padding-top: var(--gutter-l);
   }
-
+  
+  /* animations */
   .img3, .img3 img {
     animation-delay: 0.3s;
   }
 
   @media (width >= 1024px) {
-    .header {
+    .description {
       grid-column: 1 / 6;
       grid-row: 2 / 3;
     }

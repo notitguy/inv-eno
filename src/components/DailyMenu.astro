@@ -15,7 +15,7 @@
 			text-align: center;
 		}
 		#daily-menu {
-			max-width: 60rem;
+			/* max-width: 60rem; */
 			margin: 0 auto;
 		}
 	}
@@ -30,6 +30,17 @@
 		gap: 0 var(--gutter);
 		padding: 0.7rem 0;
 		line-height: 1.5;
+		border-block: 1px solid transparent;
+	}
+	#daily-menu li:hover {
+		background-color: hsl(0 0% 99% / 50%);
+		border-block: 1px solid hsl(0 0% 95%);
+	}
+	@media (width >= 768px) {
+		
+		#daily-menu li {
+			padding-left: 0.7rem;
+		}
 	}
 	.price {
 		font-weight: bold;

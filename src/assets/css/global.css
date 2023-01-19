@@ -6,8 +6,11 @@
   --font: 'Sarabun', sans-serif; /*not used*/
   --font: 'Quicksand', sans-serif;
   --easing: cubic-bezier(0.76, 0, 0.24, 1); /*easeInOutQuart*/
-  --c-primary: hsl(120 39% 25%);
-  --c-black: hsl(0 0% 0% / 75%);
+  /*colors*/
+  --c-primary: hsl(120deg 19% 40%);
+  --c-primary-hover: hsl(120deg 27% 25%);
+  --c-black: hsl(0 0% 25%);
+  --c-black-99: hsl(0 0% 99%);
   /*animations*/
   --scale-out: scale3d(0.9, 0.9, 0.9);
   --scale-in: scale3d(1.2, 1.2, 1.2);
@@ -61,7 +64,12 @@ p {
 }
 a {
   text-decoration: none;
-  color: #333;
+  color: var(--c-primary);
+  transition: all 0.3s ease-in;
+
+  &:hover {
+    color: var(--c-primary-hover);
+  }
 }
 ul:not([role="list"]) {
   list-style: none;
@@ -92,11 +100,11 @@ address {
 /* Animations */
 .animate, .animate img {
   animation-fill-mode: forwards;
-
-  &.animate {
-    animation-duration: 1.6s;
-    animation-timing-function: var(--easing);
-  }
+  animation-duration: 1.6s;
+  animation-timing-function: var(--easing);
+}
+div.animate {
+  overflow: hidden;
 }
 .toRight img {
   clip-path: inset(0 100% 0 0);
