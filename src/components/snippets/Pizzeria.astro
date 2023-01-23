@@ -1,0 +1,36 @@
+---
+import Arrow from "./Arrow.astro";
+const pizzeriaPhoto = 'https://pizza.invitaly.cz/assets/img/food/140422/21-03Invitaly_10.jpg'
+---
+
+<section class="pizzeria">
+  <h3 class="small">Invitaly Piazzetta</h3>
+  <p>Visit our pizzera to taste delicious Italian pizzas.</p>
+  <a href="https://pizza.invitaly.cz">
+    <div>
+      <p>Go to pizzeria</p>
+      <Arrow small />
+    </div>
+    <img src={pizzeriaPhoto} alt="Invitaly Pizza" width="200">
+  </a>
+</section>
+
+<style>
+  
+  .pizzeria {
+    display: flex;
+    flex-direction: column;
+
+    & div {
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--gutter);
+
+      & p {
+        font-weight: 600;
+        margin: 0;
+      }
+    }
+  }
+
+</style>

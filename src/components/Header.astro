@@ -1,11 +1,15 @@
 ---
 import { t } from "i18next";
 import TopNav from "./snippets/TopNav.astro";
+import Reservation from "./snippets/Reservation.astro";
+import Address from "./snippets/Address.astro";
+
 import LanguageSelector from "./snippets/LanguageSelector.astro";
+
+import logo from '../assets/img/branding/invitaly_logo--small.svg'
 
 const { pathname } = Astro.url;
 
-import logo from '../assets/img/branding/invitaly_logo--small.svg'
 ---
 
 <header class="container">
@@ -15,11 +19,12 @@ import logo from '../assets/img/branding/invitaly_logo--small.svg'
   <a class="logo" href={pathname}>
     <img src={logo} alt="Invitaly logo" width="100" height="54">
   </a>
-  <div class="overlay"></div>
+  <!-- <div class="overlay"></div> -->
   <nav class="mobile-menu">
-    <section class="menu-container">
-      <TopNav />
-      <p>Iste et, velit explicabo nam incidunt porro nobis autem voluptates repellendus error quaerat asperiores, in ratione perspiciatis. Deleniti maxime repudiandae ipsam totam est enim aut, amet animi laboriosam eos eaque. Quod cumque dolores aperiam enim maxime doloribus magnam labore. Totam delectus tempora, accusamus veritatis repudiandae ex quo. Esse necessitatibus voluptatem repudiandae nihil quibusdam obcaecati, soluta aperiam ipsa. Tempore esse optio aliquam sint debitis? Sequi?</p>
+    <section class="grid container">
+      <TopNav mobile />
+      <Reservation />
+      <Address />
     </section>
     <!-- <a href="#" class="order">{t("header.order")}</a> -->
     <LanguageSelector />
@@ -28,7 +33,12 @@ import logo from '../assets/img/branding/invitaly_logo--small.svg'
 </header>
 
 <style>
+
   header {
+    position: fixed;
+    top: 0;
+    left: 0; right: 0; /* centering fixed position */
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,7 +51,7 @@ import logo from '../assets/img/branding/invitaly_logo--small.svg'
       display: none;
     }
   } 
-  .overlay, .mobile-menu, .burger {
+  header, .overlay, .mobile-menu, .burger {
     z-index: 1;
   }
   nav.mobile-menu {
@@ -50,13 +60,18 @@ import logo from '../assets/img/branding/invitaly_logo--small.svg'
     flex: 1; /* places logo in the middle */
     justify-content: flex-end;
   }
-  section.menu-container {
+  section.container {
     position: fixed;
     top: 0;
     right: 0;
-    width: min(100vw, 500px);
+    /* width: min(100vw, 500px); */
+    min-height: 100vh;
+    max-width: 100vw; /* overriding global value */
+    width: 100vw; height: 100vh;
+    overflow-y: scroll;
     padding: var(--gutter-l);
-    background-color: salmon;
+    background-color: var(--c-black-99);
+    transition: all .3s ease-in-out;
     transform: translateX(100%);
     translate: 100%;
 
@@ -65,6 +80,17 @@ import logo from '../assets/img/branding/invitaly_logo--small.svg'
       translate: 0;
     }
   }
+  @media (width >= 768px) {
+    section.container {
+      grid-template-columns: 1fr 1fr;
+      padding: 10vw 30vw;
+
+      & :global(*:nth-child(3)) {
+        grid-column: 2;
+      }
+    }
+  }
+
   div.overlay {
       opacity: 0;
       content: "";
@@ -73,7 +99,7 @@ import logo from '../assets/img/branding/invitaly_logo--small.svg'
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,0.7);
+      /* background-color: rgba(0,0,0,0.7); */
       transform: translateX(100%);
       translate: 100%;
 
@@ -86,8 +112,8 @@ import logo from '../assets/img/branding/invitaly_logo--small.svg'
 </style>
 
 <script>
-  const menuElements = document.querySelectorAll('.burger, .overlay, .menu-container a');
-  const overlay = document.querySelectorAll('.overlay, .menu-container');
+  const menuElements = document.querySelectorAll('.burger, .overlay, .mobile-menu .container a');
+  const overlay = document.querySelectorAll('.overlay, .mobile-menu .container');
 
   menuElements.forEach(item => {
     item.addEventListener('click', () => {

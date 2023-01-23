@@ -1,4 +1,10 @@
-<div class="arrow">
+---
+interface Props {
+  small?: boolean;
+}
+const { small = false } = Astro.props;
+---
+<div class:list={[ "arrow", {small}]}>
   <div class="arrow__body"></div>
   <div class="arrow__head"></div>
   <div class="arrow__circle"></div>
@@ -26,6 +32,10 @@
     padding-right: 1rem;
     --c-arrow: var(--c-primary);
     /* --easing: cubic-bezier(1, 0, 0, 1); */
+
+    &.small {
+      transform: scale(0.8);
+    }
 
     & * {
       /* animation-duration: 0.6s; */

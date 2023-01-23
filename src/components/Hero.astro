@@ -19,7 +19,7 @@ const {
   } = Astro.props;
 ---
 
-<section style="padding-top: 0;">
+<section>
     <h1>{t("hero.h1")}</h1>
     <!-- <p>{t("hero.p")}</p> -->
   <div>
@@ -28,6 +28,9 @@ const {
 </section>
 
 <style>
+  section {
+    padding-top: max(5rem,   7vw);
+  }
   div:has(img) {
     /* animations */
     animation-fill-mode: backwards;

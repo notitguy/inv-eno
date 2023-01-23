@@ -5,6 +5,7 @@
   --gutter-xl: 6rem;
   --font: 'Sarabun', sans-serif; /*not used*/
   --font: 'Quicksand', sans-serif;
+  --font-heading: 'Nlgstr', serif;
   --easing: cubic-bezier(0.76, 0, 0.24, 1); /*easeInOutQuart*/
   /*colors*/
   --c-primary: hsl(120deg 19% 40%);
@@ -40,7 +41,7 @@
 body {
   line-height: 2;
   overflow-x: hidden;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
   font-family: var(--font);
   color: var(--c-black);
 }
@@ -48,7 +49,7 @@ section, footer {
   padding-block: var(--gutter-l);
 }
 h1, h2, h3 {
-  font-family: 'Nlgstr', serif;
+  font-family: var(--font-heading);
   font-weight: normal;
   color: var(--c-primary);
   line-height: 1.3;
@@ -62,15 +63,7 @@ h3.small {
 p {
   margin-bottom: 1rem;
 }
-a {
-  text-decoration: none;
-  color: var(--c-primary);
-  transition: all 0.3s ease-in;
 
-  &:hover {
-    color: var(--c-primary-hover);
-  }
-}
 ul:not([role="list"]) {
   list-style: none;
   margin: 0;
@@ -78,6 +71,15 @@ ul:not([role="list"]) {
 }
 address {
   font-style: inherit;
+}
+a {
+  text-decoration: none;
+  color: var(--c-primary);
+  transition: color 0.3s ease-in;
+
+  &:hover {
+    color: var(--c-primary-hover);
+  }
 }
 
 /* Utilities */
@@ -94,7 +96,13 @@ address {
 .container { 
   max-width: var(--container);
   margin: 0 auto;
-  padding: var(--gutter-l)
+  padding-block: var(--gutter-l)
+}
+
+@media (width < 85rem) { /*container width*/
+  .container {
+    padding-inline: var(--gutter-l);
+  }
 }
 
 /* Animations */
@@ -103,7 +111,7 @@ address {
   animation-duration: 1.6s;
   animation-timing-function: var(--easing);
 }
-div.animate {
+div.observe {
   overflow: hidden;
 }
 .toRight img {
@@ -113,16 +121,7 @@ div.animate {
     animation-name: toRight;
   }
 }
-@keyframes toLeft {
-  0% {
-    clip-path: inset(0 0 0 100%);
-    /* opacity: 0; */
-  }
-  100% {
-    clip-path: inset(0);
-    /* opacity: 1; */
-  }
-}
+
 @keyframes toRight {
   0% {
     clip-path: inset(0 100% 0 0);

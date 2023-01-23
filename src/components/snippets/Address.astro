@@ -1,9 +1,11 @@
 ---
 import { t } from "i18next";
+import logo from '../../assets/img/branding/invitaly_logo--small.svg'
 import instagram from '../../assets/img/icon/instagram--color.svg';
 ---
 <section>
   <h3 class="small">Invitaly EnoTrattoria</h3>
+  <img class="logo" src={logo} alt="Invitaly Pizza" width="100">
   <address>
     <ul>
       <li>Vězeňská 4, 110 00 Praha, Czechia<br>
@@ -28,10 +30,17 @@ import instagram from '../../assets/img/icon/instagram--color.svg';
       grid-column: 7 / 11;
     }
   } */
+  img.logo {
+    margin-block: 1rem;
+  }
   .social-link {
     display: flex;
-    align-items: center;
-    gap: var(--gutter);
+    gap: 1rem;
     margin-top: var(--gutter);
+    line-height: 1.5;
+
+    /* & img {
+      margin-top: 0.3rem;
+    } */
   }
 </style>

@@ -1,7 +1,13 @@
 ---
 import { t } from "i18next";
+
+interface Props {
+  mobile?: boolean;
+}
+const { mobile = false } = Astro.props;
 ---
-<ul role="menu">
+
+<ul role="menu" class:list={ {mobile} }>
   <li><a href="#about">{t("header.about")}</a></li>
   <li><a href="#menu">{t("header.menu")}</a></li>
   <li><a href="#footer">{t("header.contact")}</a></li>
@@ -14,8 +20,13 @@ import { t } from "i18next";
   }
 </style>
 <style>
-  a {
+  ul:not(.mobile) a {
     text-transform: uppercase;
     font-weight: 600;
   }
+  ul.mobile a {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
 </style>

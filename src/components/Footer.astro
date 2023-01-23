@@ -1,17 +1,25 @@
 ---
 import Reservation from "./snippets/Reservation.astro";
 import Address from "./snippets/Address.astro";
+import Pizzeria from "./snippets/Pizzeria.astro";
+
 ---
 
-<footer class="grid container" id="footer">
-  <Reservation visible />
-  <Address />
+<footer id="footer">
+  <div class="grid container">
+    <Reservation visible />
+    <Address />
+    <Pizzeria />
+  </div>
 </footer>
 
 <style>
-  /* @media (width < 1025px) { */
-    footer.grid {
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 30ch), 1fr));
-    }
-  /* } */
+
+  footer {
+    background-color: var(--c-black-99);
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 30ch), 1fr)); /*if using grid*/
+  }
+  
 </style>

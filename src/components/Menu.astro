@@ -1,8 +1,8 @@
 ---
 
 import img1 from "../assets/img/body/20221027vezenska_piatti_12.jpg"
-import img2 from "../assets/img/body/20221027vezenska_piatti_2_square.jpg"
-import img3 from "../assets/img/hero/unused/invitaly_vezenska_16.jpg"
+import img2 from "../assets/img/body/INV2-217_021.jpg"
+import img3 from "../assets/img/body/INV2-217_065.jpg"
 import Arrow from "./snippets/Arrow.astro";
 
 interface Props {
@@ -21,10 +21,11 @@ const { menuUrl = "https://invitaly.cz/files/menu_vezenska.pdf" } = Astro.props;
   </a>
   <div class="gallery">
     <div class="zoom observe">
-      <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=900&h=400&q=80" alt="">
+      <img src={img2} alt="" width="1100" height="400">
+      <!-- <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=900&h=400&q=80" alt=""> -->
     </div>
     <div class="zoom observe">
-      <img src={img1} alt="" width="300" height="400">
+      <img src={img3} alt="" width="300" height="400">
     </div>
   </div>
 </section>
