@@ -1,0 +1,21 @@
+---
+import logo from '../../assets/img/branding/invitaly_logo--small.svg'
+
+interface Props {
+  width?: number;
+  height?: number;
+}
+const { width = 100, height = 54 } = Astro.props;
+---
+
+<img class="logo" src={logo} alt="Invitaly logo" width={width} height={height}>
+
+<style>
+
+  @media (width < 769px) {
+
+    img {
+      width: 70px;
+    }
+  }
+</style>

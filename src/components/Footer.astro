@@ -8,7 +8,7 @@ import Pizzeria from "./snippets/Pizzeria.astro";
 <footer id="footer">
   <div class="grid container">
     <Reservation visible />
-    <Address />
+    <Address instagram />
     <Pizzeria />
   </div>
 </footer>
@@ -16,7 +16,8 @@ import Pizzeria from "./snippets/Pizzeria.astro";
 <style>
 
   footer {
-    background-color: var(--c-black-99);
+    background-color: var(--c-grey-light);
+    border-top: 1px solid #eee;
   }
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 30ch), 1fr)); /*if using grid*/

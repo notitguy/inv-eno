@@ -1,0 +1,111 @@
+---
+import TopNav from "./TopNav.astro";
+import Reservation from "./Reservation.astro";
+import Address from "./Address.astro";
+
+import LanguageSelector from "./LanguageSelector.astro";
+---
+
+<!-- <div class="overlay"></div> -->
+<nav class="mobile-menu">
+  <section class="grid">
+    <TopNav mobile />
+    <Address />
+    <Reservation visible instagram />
+  </section>
+  <!-- <a href="#" class="order">{t("header.order")}</a> -->
+  <LanguageSelector />
+  <div class="burger">Menu</div>
+</nav>
+
+<style>
+
+  .overlay, .mobile-menu, .burger {
+    z-index: 1;
+  }
+  .burger {
+    cursor: pointer;
+  }
+  nav.mobile-menu {
+    display: flex;
+    gap: var(--gutter);
+    flex: 1; /* places logo in the middle */
+    justify-content: flex-end;
+  }
+  section.grid {
+    position: fixed;
+    top: 0;
+    right: 0;
+    /* width: min(100vw, 500px); */
+    min-height: 100vh;
+    width: 100vw; height: 100vh;
+    overflow-y: scroll;
+    padding: var(--gutter-l);
+    background-color: var(--c-grey-light);
+    transition: all .3s ease-in-out;
+    transform: translateX(100%);
+    translate: 100%;
+    row-gap: 0;
+
+    &.mobile-menu--open {
+      transform: translateX(0);
+      translate: 0;
+    }
+
+    & :global( >* ) {
+      padding: 0;
+    }
+    & :global( > *:nth-child(3)) {
+      padding-block: var(--gutter);
+    }
+  }
+
+  @media (width >= 768px) {
+    section.grid {
+      grid-template-columns: 1.5fr 1fr;
+      padding: 10vw 16vw;
+
+      & :global( > *:nth-child(1) ) {
+        grid-row: 1 / 3;
+      }
+      & :global( > *:nth-child(3)) {
+        grid-column: 2;
+      }
+    }
+  }
+
+  /* div.overlay {
+      opacity: 0;
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      transform: translateX(100%);
+      translate: 100%;
+
+    &.mobile-menu--open {
+      opacity: 1;
+      transform: translateX(0);
+      translate: 0;
+    }
+  } */
+  
+</style>
+
+<script>
+  // Mobile menu
+  const menuElements = document.querySelectorAll('.burger, .overlay, .mobile-menu .grid a');
+  const overlay = document.querySelectorAll('body, .overlay, .grid');
+
+  menuElements.forEach(item => {
+    item.addEventListener('click', () => {
+      for (const el of overlay) {
+        el.classList.toggle('mobile-menu--open');
+      }
+    })
+  })
+  
+</script>

@@ -10,7 +10,7 @@ const { small = false } = Astro.props;
   <div class="arrow__circle"></div>
 </div>
 
-<style is:inline>
+<style is:global>
   /* assuming arrow is inside an <a> */
   a:hover .arrow__body::before {
       animation-name: arrowBody;
@@ -20,6 +20,12 @@ const { small = false } = Astro.props;
   }
   a:hover .arrow__circle {
     animation-name: ping;
+  }
+  ul.mobile a .arrow {
+    transition: opacity 0.6s ease-in;
+  }
+  ul.mobile a:not(:hover) .arrow {
+    opacity: 0;
   }
 </style>
 

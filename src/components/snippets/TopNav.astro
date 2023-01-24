@@ -1,5 +1,6 @@
 ---
 import { t } from "i18next";
+import Arrow from "./Arrow.astro";
 
 interface Props {
   mobile?: boolean;
@@ -8,18 +9,36 @@ const { mobile = false } = Astro.props;
 ---
 
 <ul role="menu" class:list={ {mobile} }>
-  <li><a href="#about">{t("header.about")}</a></li>
-  <li><a href="#menu">{t("header.menu")}</a></li>
-  <li><a href="#footer">{t("header.contact")}</a></li>
+  <li><a href="#about">{t("header.about")}{ mobile && <Arrow small /> }</a></li>
+  <li><a href="#menu">{t("header.menu")}{ mobile && <Arrow small /> }</a></li>
+  <li><a href="#footer">{t("header.contact")}{ mobile && <Arrow small /> }</a></li>
 </ul>
 
-<style is:global>
-  nav.desktop-menu ul[role="menu"] {
+<style>
+  
+  ul:not(.mobile) {
     display: flex;
     gap: var(--gutter);
   }
-</style>
-<style>
+
+  @media (width < 769px) {
+
+    ul.mobile {
+      margin-top: 3rem;
+    }
+  }
+
+  @media (width >= 768px) {
+
+    ul.mobile li {
+      padding-inline: 1rem;
+      
+      &:hover {
+        background-color: var(--c-primary-light);
+      }
+    }
+  }
+
   ul:not(.mobile) a {
     text-transform: uppercase;
     font-weight: 600;
@@ -27,6 +46,9 @@ const { mobile = false } = Astro.props;
   ul.mobile a {
     font-family: var(--font-heading);
     font-size: clamp(2rem, 4vw, 3rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
 </style>
