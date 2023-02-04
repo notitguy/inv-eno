@@ -3,7 +3,7 @@ import { t } from "i18next";
 import TopNav from "./snippets/TopNav.astro";
 
 import Logo from "./snippets/Logo.astro";
-import MobileMenu from "./snippets/Mobile-menu.astro";
+import MobileNav from "./snippets/MobileNav.astro";
 
 const { pathname } = Astro.url;
 
@@ -11,13 +11,13 @@ const { pathname } = Astro.url;
 
 <header>
   <div class="container">
-    <nav class="desktop-menu">
+    <nav class="desktop-nav">
       <TopNav />
     </nav>
     <a href={pathname}>
       <Logo />
     </a>
-    <MobileMenu />
+    <MobileNav />
   </div>
 </header>
 
@@ -38,7 +38,7 @@ const { pathname } = Astro.url;
       transition: padding 0.3s ease-in;
     }
   }
-  nav.desktop-menu {
+  nav.desktop-nav {
     flex: 1; /* places logo in the middle */
   }
     @media (width < 769px) {
@@ -46,7 +46,7 @@ const { pathname } = Astro.url;
       header .container {
         padding-block: 0.5rem;
       }
-      nav.desktop-menu {
+      nav.desktop-nav {
         display: none;
       }
     } 
@@ -64,7 +64,7 @@ const { pathname } = Astro.url;
 
   window.onscroll = function() {
 
-    if (this.oldScroll > this.scrollY || document.body.className === "mobile-menu--open" ) {
+    if ( this.oldScroll > this.scrollY || this.scrollY < 50 || document.body.className === "mobile-nav--open" ) {
       header.style.transform = null;
     }
     else {
@@ -73,7 +73,7 @@ const { pathname } = Astro.url;
     this.oldScroll = this.scrollY;
     
     // change the container padding
-    if ( window.scrollY > 500 && window.innerWidth >= 768 && !(document.body.className === "mobile-menu--open") ) {
+    if ( window.scrollY > 500 && window.innerWidth >= 768 && !(document.body.className === "mobile-nav--open") ) {
       headerContainer.style.paddingBlock = 'var(--gutter)';
     }
     else {

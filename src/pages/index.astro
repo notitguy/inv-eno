@@ -10,6 +10,7 @@ import About from "../components/About.astro";
 import DailyMenu from "../components/DailyMenu.astro";
 import Menu from "../components/Menu.astro";
 import Footer from "../components/Footer.astro";
+import Review from "../components/Review.astro";
 
 changeLanguage("cs");
 ---
@@ -22,7 +23,10 @@ changeLanguage("cs");
 		<About />
 		<Menu />
 		<DailyMenu />
+		<Review />
 		<Footer />
-		<script src="../assets/js/global.js"></script>
+		<script> 
+			import "../assets/js/global.js"
+		</script>
 	</body>
 </html>

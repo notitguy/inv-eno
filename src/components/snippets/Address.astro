@@ -1,8 +1,10 @@
 ---
 import { t } from "i18next";
-import logo from '../../assets/img/branding/invitaly_logo--small.svg'
-import iconInstagram from '../../assets/img/icon/instagram--color.svg';
+
+import iconInstagram from '../../assets/img/icon/instagram.svg';
 import Logo from "./Logo.astro";
+
+const { pathname } = Astro.url;
 
 interface Props {
   instagram?: boolean;
@@ -10,8 +12,10 @@ interface Props {
 const { instagram = false } = Astro.props;
 ---
 <section>
+  <a href={pathname}>
+    <Logo />
+  </a>
   <h3 class="small">Invitaly EnoTrattoria</h3>
-  <Logo />
   <address>
     <ul>
       <li>Vězeňská 4, 110 00 Praha, Czechia<br>
@@ -25,7 +29,7 @@ const { instagram = false } = Astro.props;
       </li>
     </ul>
     { instagram && <a href="https://www.instagram.com/invitaly_enotrattoria/" target="_blank" class="social-link">
-      <img src={iconInstagram} alt="Invitaly instagram" width="28" height="28"> {t("footer.instaCaption")}
+      <img src={iconInstagram} alt="Invitaly instagram" width="28" height="28">
     </a> }
   </address>
 </section>
@@ -35,12 +39,13 @@ const { instagram = false } = Astro.props;
   section {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+  }
+  h3, .social-link {
+    margin-top: var(--gutter);
   }
   :global(.social-link) {
     display: flex;
     gap: 1rem;
-    margin-top: var(--gutter);
     line-height: 1.5;
   }
 </style>

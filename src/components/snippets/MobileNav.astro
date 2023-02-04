@@ -1,0 +1,164 @@
+---
+import TopNav from "./TopNav.astro";
+import Reservation from "./Reservation.astro";
+import Address from "./Address.astro";
+
+import LanguageSelector from "./LanguageSelector.astro";
+
+---
+
+<!-- <div class="overlay"></div> -->
+<nav class="mobile-nav">
+  <section class="fadeUp">
+    <TopNav mobile />
+    <div class="contact">
+      <Address />
+      <Reservation instagram />
+    </div>
+  </section>
+  <!-- <a href="#" class="order">{t("header.order")}</a> -->
+  <LanguageSelector />
+  <div class="icon-nav"></div>
+</nav>
+
+<style>
+
+  .mobile-nav, .icon-nav {
+    z-index: 1;
+  }
+
+  nav.mobile-nav {
+    display: flex;
+    gap: var(--gutter);
+    flex: 1; /* places logo in the middle */
+    justify-content: flex-end;
+    align-items: center;
+  }
+  section {
+    position: fixed;
+    top: 0;
+    right: 0;
+    min-height: 100vh;
+    width: 100vw; height: 100vh;
+    padding: var(--gutter-l);
+    background-color: var(--c-grey-light);
+    transition: opacity 0.3s ease-in-out, visibility 0s ease-in-out 0.3s;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gutter);
+
+    & > :global(section) {
+      padding: 0;
+    }
+  }
+
+  .icon-nav {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /*4x icon-nav line hieght*/
+    width: min(10vw, 3.5rem);
+    
+    &::before, &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: var(--c-primary);
+      transition: transform 0.3s ease-in-out;
+    }
+    &::after {
+      width: 70%;
+    }
+  }
+  .mobile-nav--open {
+
+    & section {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out, visibility 0s ease-in-out 0s;
+    }
+
+    & .icon-nav::before {
+      transform: translateY(5px);
+    }
+    & .icon-nav::after {
+      transform: translateY(-5px);
+    }
+  }
+
+  @media (width < 1025px) {
+    section {
+      overflow-y: scroll;
+    }
+  }
+  @media (width >= 768px) {
+    section {
+      row-gap: var(--gutter-l);
+      padding: 10vw 16vw;
+
+      & > .contact {
+        /* background-color: var(--c-primary-light); */
+        margin-top: var(--gutter-l);
+        padding: var(--gutter);
+        gap: var(--gutter-l);
+      }
+    }
+  }
+  
+</style>
+
+<style is:global>
+
+  .mobile-nav--open {
+
+    & .fadeUp {
+      & ul li a, & section, & ul li:first-child img {
+        opacity: 0;
+        animation-fill-mode: forwards;
+        animation-duration: 0.9s;
+        animation-timing-function: var(--easing);
+        animation-name: fadeUp;
+      }
+      & ul li:first-child img  {
+        animation-fill-mode: both;
+        animation-name: fadeIn;
+        animation-delay: 0.9s;
+      }
+      & ul.mobile li {
+        &:nth-child(1) a {
+          animation-delay: 0.1s;
+        }
+        &:nth-child(2) a {
+          animation-delay: 0.3s;
+        }
+        &:nth-child(3) a {
+          animation-delay: 0.5s;
+        }
+      }
+      & section {
+        animation-delay: 0.6s;
+      }
+    }
+  }
+
+</style>
+
+<script>
+  // Mobile menu
+  const menuElements = document.querySelectorAll('.icon-nav, .mobile-nav a');
+  const overlay = document.querySelectorAll('body, .mobile-nav'); // remove body, if overflows
+
+  menuElements.forEach(item => {
+    item.addEventListener('click', () => {
+      for (const el of overlay) {
+        el.classList.toggle('mobile-nav--open');
+      }
+    })
+  })
+  
+</script>

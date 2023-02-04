@@ -7,11 +7,13 @@ const pizzeriaPhoto = 'https://pizza.invitaly.cz/assets/img/food/140422/21-03Inv
   <h3 class="small">Invitaly Piazzetta</h3>
   <p>Visit our pizzera to taste delicious Italian pizzas.</p>
   <a href="https://pizza.invitaly.cz">
-    <div>
+    <div class="link">
       <p>Go to pizzeria</p>
       <Arrow small />
     </div>
-    <img src={pizzeriaPhoto} alt="Invitaly Pizza" width="200">
+    <div class="zoom observe">
+      <img src={pizzeriaPhoto} alt="Invitaly Pizza" width="200">
+    </div>
   </a>
 </section>
 
@@ -21,7 +23,7 @@ const pizzeriaPhoto = 'https://pizza.invitaly.cz/assets/img/food/140422/21-03Inv
     display: flex;
     flex-direction: column;
 
-    & div {
+    & .link {
       display: flex;
       align-items: center;
       margin-bottom: var(--gutter);
@@ -29,6 +31,15 @@ const pizzeriaPhoto = 'https://pizza.invitaly.cz/assets/img/food/140422/21-03Inv
       & p {
         font-weight: 600;
         margin: 0;
+      }
+    }
+    & .zoom {
+      display: grid;
+      place-content: center;
+      max-height: 15rem;
+
+      & img {
+        width: auto;
       }
     }
   }

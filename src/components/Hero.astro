@@ -20,7 +20,7 @@ const {
 ---
 
 <section>
-    <h1>{t("hero.h1")}</h1>
+    <h1 class="fadeUp observe">{t("hero.h1")}</h1>
     <!-- <p>{t("hero.p")}</p> -->
   <div>
     <RandomImage client:load images={images} className width={width} height={height} alt={alt} />
@@ -48,12 +48,6 @@ const {
     max-width: 50rem;
     padding: var(--gutter-l);
     margin: var(--gutter) auto var(--gutter-xl);
-    /* animations */
-    opacity: 0;
-    animation-fill-mode: forwards;
-    animation-duration: 1.6s;
-    animation-timing-function: var(--easing);
-    animation-name: heroHeader;
   }
   
   @media (width < 769px) {
@@ -67,17 +61,6 @@ const {
     }
   }
 
-  @keyframes heroHeader {
-    0% {
-      transform: translateY(50%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  </style>
+</style>
 
   <!-- <script src="src/assets/js/loco.js" type="module"/> -->

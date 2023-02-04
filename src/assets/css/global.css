@@ -57,6 +57,8 @@ h1, h2, h3 {
 }
 h2 {
   font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1;
+  margin-bottom: var(--gutter);
 }
 h3.small {
   letter-spacing: 1px;
@@ -115,11 +117,47 @@ a {
 div.observe {
   overflow: hidden;
 }
-.toRight img {
-  clip-path: inset(0 100% 0 0);
+
+.fadeUp:not(section) {
+  opacity: 0;
 
   &.animate {
+    animation-name: fadeUp;
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.toRight img {
+  clip-path: inset(0 100% 0 0);
+  
+  &.animate {
     animation-name: toRight;
+  }
+}
+.toLeft img {
+  clip-path: inset(0 0 0 100%);
+
+  &.animate {
+    animation-name: toLeft;
   }
 }
 

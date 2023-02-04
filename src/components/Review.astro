@@ -1,0 +1,58 @@
+---
+import { t } from "i18next";
+
+import imgReview from "../assets/img/body/INV2-217_021.jpg"
+---
+
+<section>
+    <figure class="header">
+      <h2 class="fadeUp observe">Breathtaking experience</h2>
+      <q>Excellent, unassuming and wonderful find. Great variety and fine value tasting menu. Exciting food with high quality presentation, service and inventiveness.</q>
+      <figcaption>—Aldous Huxley, Source</figcaption>
+    </figure>
+  <div class="toLeft observe">
+    <img src={imgReview} width= "1500" height="800" alt="Invitaly EnoTrattoria">
+  </div>
+</section>
+
+<style>
+  section {
+    padding-bottom: 0;
+  }
+  div:has(img) {
+    /* grid-column: 5 / 13; */
+    /* animations */
+    /* animation-fill-mode: backwards;
+    animation-duration: 1.6s;
+    animation-timing-function: var(--easing);
+    animation-delay: 0.1s;
+    animation-name: toLeft; */
+  }
+  img {
+    object-fit: cover;
+
+  }
+  .header {
+    text-align: center;
+    max-width: 50rem;
+    margin: 0 auto var(--gutter-xl) auto;
+
+    & figcaption {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (width < 769px) {
+    h1 {
+      /* margin: 0 auto var(--gutter); */
+    }
+  }
+  @media (width < 1025px) {
+    img {
+      max-height: 70vh;
+    }
+  }
+
+  </style>
+
+  <!-- <script src="src/assets/js/loco.js" type="module"/> -->

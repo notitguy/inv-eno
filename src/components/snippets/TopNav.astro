@@ -2,16 +2,30 @@
 import { t } from "i18next";
 import Arrow from "./Arrow.astro";
 
+import imgNav1 from "../../assets/img/body/INV2-217_006.jpg"
+import imgNav2 from "../../assets/img/body/INV2-217_004.jpg"
+import imgNav3 from "../../assets/img/body/INV2-217_053.jpg"
+
 interface Props {
   mobile?: boolean;
+  fadeUpMenu?: boolean;
 }
-const { mobile = false } = Astro.props;
+const { mobile = false, fadeUpMenu = false, observe = false } = Astro.props;
 ---
 
-<ul role="menu" class:list={ {mobile} }>
-  <li><a href="#about">{t("header.about")}{ mobile && <Arrow small /> }</a></li>
-  <li><a href="#menu">{t("header.menu")}{ mobile && <Arrow small /> }</a></li>
-  <li><a href="#footer">{t("header.contact")}{ mobile && <Arrow small /> }</a></li>
+<ul role="navigation" class:list={ {mobile, fadeUpMenu} }>
+  <li>
+    <a href="#about">{t("header.about")}{ mobile && <Arrow small /> }</a>
+    { mobile && <img src={imgNav1} width="400" alt=""> }
+  </li>
+  <li>
+    <a href="#menu">{t("header.menu")}{ mobile && <Arrow small /> }</a>
+    { mobile && <img src={imgNav2} width="400" alt=""> }
+  </li>
+  <li>
+    <a href="#footer">{t("header.contact")}{ mobile && <Arrow small /> }</a>
+    { mobile && <img src={imgNav3} width="400" alt=""> }
+  </li>
 </ul>
 
 <style>
@@ -20,21 +34,42 @@ const { mobile = false } = Astro.props;
     display: flex;
     gap: var(--gutter);
   }
+  ul.mobile {
+    position: relative;
+  }
 
-  @media (width < 769px) {
+  @media (width < 1500px) {
 
     ul.mobile {
-      margin-top: 3rem;
+      margin-block: var(--gutter);
+
+      & img {
+        display: none;
+      }
     }
   }
 
   @media (width >= 768px) {
 
     ul.mobile li {
-      padding-inline: 1rem;
-      
-      &:hover {
-        background-color: var(--c-primary-light);
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+
+      & a {
+        padding-inline: 1rem;
+      }
+
+      & img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        opacity: 0;
+        transition: opacity 0.6s ease-in-out;
+      }
+
+      &:first-child img,
+      & a:hover + img {
+        opacity: 1;
       }
     }
   }
@@ -49,6 +84,10 @@ const { mobile = false } = Astro.props;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &:hover {
+      background-color: var(--c-primary-light);
+    }
   }
 
 </style>

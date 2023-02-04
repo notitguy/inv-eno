@@ -15,7 +15,6 @@
 			text-align: center;
 		}
 		#daily-menu {
-			/* max-width: 60rem; */
 			margin: 0 auto;
 		}
 	}
@@ -37,7 +36,7 @@
 		border-block: 1px solid hsl(0 0% 95%);
 	}
 	@media (width >= 768px) {
-		
+
 		#daily-menu li {
 			padding-left: 0.7rem;
 		}
@@ -49,6 +48,12 @@
 	.price::after {
 		content: ',-';
 		font-size: 0.8rem;
+	}
+	@media (width < 769px) {
+
+		.price {
+			text-align: end;
+		}
 	}
 </style>
 
