@@ -19,16 +19,16 @@ const { instagram = false } = Astro.props;
   <address>
     <ul>
       <li>Vězeňská 4, 110 00 Praha, Czechia<br>
-      (<a href="https://goo.gl/maps/QFHo98UqRi7Puspj6" target="_blank"> {t("footer.openMap")} 📍</a>)
+      (<a href="https://goo.gl/maps/QFHo98UqRi7Puspj6" target="_blank" id="mapClick"> {t("footer.openMap")} 📍</a>)
       </li>
       <li>
-        <a href="tel:+420222313185" target="_blank">+420 222 313 185</a>
+        <a href="tel:+420222313185" target="_blank" id="callClick">+420 222 313 185</a>
       </li>
       <li>
-        <a href="mailto:enotrattoria@invitaly.cz" target="_blank">enotrattoria@invitaly.cz</a>
+        <a href="mailto:enotrattoria@invitaly.cz" target="_blank" id="emailClick">enotrattoria@invitaly.cz</a>
       </li>
     </ul>
-    { instagram && <a href="https://www.instagram.com/invitaly_enotrattoria/" target="_blank" class="social-link">
+    { instagram && <a href="https://www.instagram.com/invitaly_enotrattoria/" target="_blank" class="social-link" id="instagramClick">
       <img src={iconInstagram} alt="Invitaly instagram" width="28" height="28">
     </a> }
   </address>

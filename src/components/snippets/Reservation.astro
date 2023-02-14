@@ -16,12 +16,12 @@ const { phone = "+420 222 313 185", email = "enotrattoria@invitaly.cz", hours = 
   <section>
     <h3 class="small">{t("footer.reservation")}:</h3>
     <ul style="margin-bottom: var(--gutter);">
-      <li><span>{t("footer.call")}: </span> <a href="tel:+420222313185" target="_blank">{phone}</a>
+      <li><span>{t("footer.call")}: </span> <a href="tel:+420222313185" target="_blank" id="callClick">{phone}</a>
       </li>
-      <li><span>Email: </span><a href={`mailto:${email}`} target="_blank">{email}</a>
+      <li><span>Email: </span><a href={`mailto:${email}`} target="_blank" id="emailClick">{email}</a>
       </li>
       { wolt && <li>
-        {t("footer.order")}: <a href="https://wolt.com/en/cze/prague/restaurant/invitaly" target="_blank" rel="nofollow">
+        {t("footer.order")}: <a href="https://wolt.com/en/cze/prague/restaurant/invitaly" target="_blank" rel="nofollow" id="orderClick">
           <img src={iconWolt} width="55px" height="20px" style="margin: -0.4rem 0 0 1rem;" alt="Order Invitaly">
         </a>
       </li> }
@@ -31,7 +31,7 @@ const { phone = "+420 222 313 185", email = "enotrattoria@invitaly.cz", hours = 
       <p>{t("footer.daysOpen")}:<br>{t("footer.daysClosed")}:</p>
       <p>{hours}<br>{t("footer.closed")}</p>
     </div>
-    { instagram && <a href="https://www.instagram.com/invitaly_enotrattoria/" target="_blank" class="social-link">
+    { instagram && <a href="https://www.instagram.com/invitaly_enotrattoria/" target="_blank" class="social-link" id="instagramClick">
       <img src={iconInstagram} alt="Invitaly instagram" width="28" height="28">
     </a> }
   </section>
