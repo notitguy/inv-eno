@@ -2,6 +2,7 @@
 import img2 from "../assets/img/body/INV2-217_065.jpg"
 import img3 from "../assets/img/body/INV2-217_051.jpg"
 import Arrow from "./snippets/Arrow.astro";
+import DailyMenu from "./DailyMenu.astro";
 
 interface Props {
   menuUrl?: string;
@@ -27,6 +28,7 @@ const { menuUrl = "https://invitaly.cz/files/menu_enotrattoria.pdf" } = Astro.pr
     </div>
   </div>
 </section>
+<DailyMenu />
 
 <style>
 

@@ -1,17 +1,64 @@
 <section class="container">
-	<h3 id="daily-menu-header">Daily menu</h3>
+	<h3 id="daily-menu-header">Business lunch menu</h3>
 	<i>12:00 - 15:00</i>
-	<ul id="daily-menu"></ul>
+	<ul id="daily-menu">
+		<li class="first-course">First Course</li>
+		<li class="second-course">Main Course</li>
+		<li class="third-course">Third Course</li>
+	</ul>
+	<hr>
+	<p>2 Courses: 600czk. 3 Courses: 700czk</p>
 </section>
+<span class="flag"></span>
 
 <style>
 
 	h3 {
 		font-size: clamp(2rem, 4vw, 3rem);
 	}
+	#daily-menu {
+		margin-bottom: var(--gutter);
+	}
+	li[class] {
+		font-family: var(--font-heading);
+		font-size: 1.3rem;
+		color: var(--c-primary);
+		line-height: 1;
+		margin-top: var(--gutter);
+	}
+
+	hr {
+		border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), hsl(120deg 19% 80%), rgba(0, 0, 0, 0));
+		margin-block: var(--gutter);
+	}
+
+	p {
+		font-weight: 600;
+	}
+
+	.flag {
+		display: flex;
+		justify-content: space-between;
+		width: 3rem; height: 0.5rem;
+		margin: 0 auto;
+		transform: skew(350deg);
+
+		&::before, &::after {
+			content: '';
+			display: block;
+			background-color: #21a151;
+			width: 1rem; height: 0.5rem;
+		}
+		&::after {
+			background-color: #cc3043;
+		}
+	}
 
 	@media (width >= 768px) {
 		section {
+			width: min(100%, 50rem);
 			text-align: center;
 		}
 		#daily-menu {
@@ -23,36 +70,18 @@
 
 <style is:inline>
 	
-	#daily-menu li {
-		display:flex;
-		justify-content: space-between;
-		gap: 0 var(--gutter);
-		padding: 0.7rem 0;
+	#daily-menu li:not([class]) {
+		padding-block: 0.7rem;
 		line-height: 1.5;
 		border-block: 1px solid transparent;
 	}
-	#daily-menu li:hover {
+	#daily-menu li:not([class]):hover {
 		background-color: hsl(0 0% 99% / 50%);
 		border-block: 1px solid hsl(0 0% 95%);
 	}
-	@media (width >= 768px) {
-
-		#daily-menu li {
-			padding-left: 0.7rem;
-		}
-	}
-	.price {
-		font-weight: bold;
-		min-width: 60px;
-	}
-	.price::after {
-		content: ',-';
-		font-size: 0.8rem;
-	}
 	@media (width < 769px) {
-
-		.price {
-			text-align: end;
+		#daily-menu li:not([class]) {
+			padding: 0.4rem 0 0;
 		}
 	}
 </style>
@@ -61,9 +90,12 @@
 
 	const header = document.querySelector('#daily-menu-header');
 	const ul = document.querySelector('#daily-menu');
-	let dailyMenu = "https://opensheet.elk.sh/1XW32FBLBLWsKdcg6fK6C0PB5-kNJXbGytTWnSNNaSmA/Czech"
+	const firstCourse = document.querySelector('.first-course');
+	const secondCourse = document.querySelector('.second-course');
+	const thirdCourse = document.querySelector('.third-course');
+	let dailyMenu = "https://opensheet.elk.sh/1989oGb99j8MAJWv-yvlM-iZK88Pa2dNL8CG8Dd58T8g/Czech"
 	if (document.documentElement.lang === "en") {
-		dailyMenu = "https://opensheet.elk.sh/1XW32FBLBLWsKdcg6fK6C0PB5-kNJXbGytTWnSNNaSmA/English"
+		dailyMenu = "https://opensheet.elk.sh/1989oGb99j8MAJWv-yvlM-iZK88Pa2dNL8CG8Dd58T8g/English"
 	}
 
 	async function getMenu() {
@@ -78,16 +110,18 @@
 	async function renderMenu() {
     let menu = await getMenu();
 		menu.map(item => {
-			const li = document.createElement("li");
-			const spanName = document.createElement("span");
-			const spanPrice = document.createElement("span");
-			const name = document.createTextNode(item.name);
-			const price = document.createTextNode(item.price);
-			spanName.append(name);
-			spanPrice.append(price);
-			spanPrice.classList.add("price");
-			li.append(spanName, spanPrice);
-			ul.appendChild(li);
+			const listFirst = document.createElement("li");
+			const itemFirst = document.createTextNode(item.first);
+			listFirst.append(itemFirst);
+			firstCourse.after(listFirst);
+			const listSecond = document.createElement("li");
+			const itemSecond = document.createTextNode(item.second);
+			listSecond.append(itemSecond);
+			secondCourse.after(listSecond);
+			const listThird = document.createElement("li");
+			const itemThird = document.createTextNode(item.third);
+			listThird.append(itemThird);
+			thirdCourse.after(listThird);
 		});
 		const spanDate = document.createElement("span");
 		const date = document.createTextNode(menu[0].date);
