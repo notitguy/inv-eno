@@ -22,5 +22,10 @@ import Pizzeria from "./snippets/Pizzeria.astro";
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 30ch), 1fr)); /*if using grid*/
   }
+  @media (width < 769px) {
+    .grid {
+      gap: 0;
+    }
+  }
   
 </style>

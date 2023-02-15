@@ -1,6 +1,6 @@
 ---
 import { t } from "i18next";
-
+import { Picture } from '@astrojs/image/components';
 import imgReview from "@assets/img/body/INV2-217_021.jpg"
 ---
 
@@ -11,7 +11,7 @@ import imgReview from "@assets/img/body/INV2-217_021.jpg"
       <figcaption>{t("review.caption")}</figcaption>
     </figure>
   <div class="toLeft observe">
-    <img src={imgReview} width= "1500" height="800" alt="Invitaly EnoTrattoria">
+    <Picture src={imgReview} widths={[400, 800, 1500]} sizes="(max-width: 768px) 100vw, 1500px" alt="Invitaly Enotrattoria" />
   </div>
 </section>
 
@@ -19,23 +19,10 @@ import imgReview from "@assets/img/body/INV2-217_021.jpg"
   section {
     padding-bottom: 0;
   }
-  div:has(img) {
-    /* grid-column: 5 / 13; */
-    /* animations */
-    /* animation-fill-mode: backwards;
-    animation-duration: 1.6s;
-    animation-timing-function: var(--easing);
-    animation-delay: 0.1s;
-    animation-name: toLeft; */
-  }
-  img {
-    object-fit: cover;
-
-  }
   .header {
     text-align: center;
     max-width: 50rem;
-    margin: 0 auto var(--gutter-xl) auto;
+    margin: 0 auto var(--gutter-l) auto;
 
     & figcaption {
       font-size: 1rem;

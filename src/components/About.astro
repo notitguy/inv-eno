@@ -1,5 +1,6 @@
 ---
 import { t } from "i18next";
+import { Picture } from '@astrojs/image/components';
 
 import img1 from "@assets/img/body/20221027vezenska_piatti_12.jpg"
 import img2 from "@assets/img/body/INV2-217_004.jpg"
@@ -12,9 +13,9 @@ import img3 from "@assets/img/body/INV2-217_063.jpg"
     <p>{t("about.p1")}</p>
     <p>{t("about.p2")}</p>
   </div>
-  <div class="img1 toRight observe"><img src={img1} alt="Invitaly"></div>
-  <div class="img2 zoom observe"><img src={img2} alt="Invitaly"></div>
-  <div class="img3 zoom observe"><img src={img3} alt="Invitaly"></div>
+  <div class="img one toRight observe"><Picture src={img1} widths={[400, 800]} sizes="(max-width: 1025px) 100vw, 800px" alt="Invitaly"/></div>
+  <div class="img two zoom observe"><Picture src={img2} widths={[400, 600]} sizes="(max-width: 1025px) 100vw, 600px" alt="Invitaly" /></div>
+  <div class="img three zoom observe"><Picture src={img3} widths={[400, 800, 1360]} sizes="(max-width: 1025px) 100vw, 1360px" alt="Invitaly" /></div>
 </section>
 
 <style>
@@ -36,26 +37,26 @@ import img3 from "@assets/img/body/INV2-217_063.jpg"
       grid-column: 1 / 6;
       grid-row: 2 / 3;
     }
-    .img1, .img2, .img3 {
+    .img {
       width: 100%;
       height: 100%;
 
-      & img {
+      & img, & :global(picture) { /* delete this if same exists in global.css */
         object-fit: cover;
         height: 100%;
         width: 100%;
       }
     } 
-    .img1 {
+    .img.one {
       grid-column: 6 / 13;
       grid-row: 2 / 4;
     }
-    .img2 {
+    .img.two  {
       grid-column: 1 / 6;
       grid-row: 3 / 4;
 
     }
-    .img3 {
+    .img.three  {
       grid-column: 1 / 13;
     }
   }

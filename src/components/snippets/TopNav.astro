@@ -1,10 +1,11 @@
 ---
 import { t } from "i18next";
+import { Image } from '@astrojs/image/components';
 import Arrow from "./Arrow.astro";
 
-import imgNav1 from "../../assets/img/body/INV2-217_006.jpg"
-import imgNav2 from "../../assets/img/body/INV2-217_004.jpg"
-import imgNav3 from "../../assets/img/body/INV2-217_053.jpg"
+import imgNav1 from "@assets/img/body/INV2-217_006.jpg"
+import imgNav2 from "@assets/img/body/INV2-217_004.jpg"
+import imgNav3 from "@assets/img/body/INV2-217_053.jpg"
 
 interface Props {
   mobile?: boolean;
@@ -13,18 +14,18 @@ interface Props {
 const { mobile = false, fadeUpMenu = false, observe = false } = Astro.props;
 ---
 
-<ul role="navigation" class:list={ {mobile, fadeUpMenu} }>
+<ul class:list={ {mobile, fadeUpMenu} }>
   <li>
     <a href="#about">{t("header.about")}{ mobile && <Arrow small /> }</a>
-    { mobile && <img src={imgNav1} width="400" alt=""> }
+    { mobile && <Image src={imgNav1} width={400} alt="" /> }
   </li>
   <li>
     <a href="#menu">{t("header.menu")}{ mobile && <Arrow small /> }</a>
-    { mobile && <img src={imgNav2} width="400" alt=""> }
+    { mobile && <Image src={imgNav2} width={400} alt="" /> }
   </li>
   <li>
     <a href="#footer">{t("header.contact")}{ mobile && <Arrow small /> }</a>
-    { mobile && <img src={imgNav3} width="400" alt=""> }
+    { mobile && <Image src={imgNav3} width={400} alt="" /> }
   </li>
 </ul>
 
@@ -65,6 +66,8 @@ const { mobile = false, fadeUpMenu = false, observe = false } = Astro.props;
         right: 0;
         opacity: 0;
         transition: opacity 0.6s ease-in-out;
+        width: min(400px, 22vw);
+        height: auto;
       }
 
       &:first-child img,

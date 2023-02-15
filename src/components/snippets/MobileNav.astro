@@ -72,7 +72,7 @@ import LanguageSelector from "./LanguageSelector.astro";
       transition: transform 0.3s ease-in-out;
     }
     &::after {
-      width: 70%;
+      width: 65%;
     }
   }
   .mobile-nav--open {
@@ -94,6 +94,17 @@ import LanguageSelector from "./LanguageSelector.astro";
   @media (width < 1025px) {
     section {
       overflow-y: scroll;
+    }
+    .icon-nav {
+      gap: 6px; /*3x icon-nav line hieght*/
+    }
+    .mobile-nav--open {
+      & .icon-nav::before {
+        transform: translateY(4px);
+      }
+      & .icon-nav::after {
+        transform: translateY(-4px);
+      }
     }
   }
   @media (width >= 768px) {

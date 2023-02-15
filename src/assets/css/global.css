@@ -49,6 +49,9 @@ body {
 section, footer {
   padding-block: var(--gutter-l);
 }
+footer section {
+  padding-block: 1rem;
+}
 h1, h2, h3 {
   font-family: var(--font-heading);
   font-weight: normal;

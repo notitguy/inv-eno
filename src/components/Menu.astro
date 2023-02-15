@@ -1,5 +1,6 @@
 ---
 import { t } from "i18next";
+import { Picture } from '@astrojs/image/components';
 
 import img2 from "@assets/img/body/INV2-217_065.jpg"
 import img3 from "@assets/img/body/INV2-217_051.jpg"
@@ -22,10 +23,10 @@ const { menuUrl = "https://invitaly.cz/files/menu_enotrattoria.pdf" } = Astro.pr
   </a>
   <div class="gallery">
     <div class="zoom observe">
-      <img src={img2} alt="" width="1100" height="400">
+      <Picture src={img2} widths={[400, 1000]} sizes="(max-width: 769px) 100vw, 984px" alt="Invitaly" />
     </div>
     <div class="zoom observe">
-      <img src={img3} alt="" width="300" height="400">
+      <Picture src={img3} widths={[400, 700]} sizes="(max-width: 769px) 100vw, 400px" alt="Invitaly" />
     </div>
   </div>
 </section>
@@ -65,15 +66,24 @@ const { menuUrl = "https://invitaly.cz/files/menu_enotrattoria.pdf" } = Astro.pr
   }
 
   .gallery {
-    display: flex;
+    display: grid;
     gap: var(--gutter-l);
     margin: var(--gutter-l) auto;
 
-    & > div {
-      /* flex: 33%; */
-
-      & img {
+      & img, & :global(picture) {
         object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+  }
+  @media (width >= 768px) {
+    .gallery {
+      grid-template-columns: 3fr 1fr;
+
+      & div {
+        display: flex;
+        align-items: center;
+        height: 400px;
       }
     }
   }

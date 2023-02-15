@@ -2,7 +2,8 @@
 import { t } from "i18next";
 
 import globals from '@assets/js/globals.json';
-import iconInstagram from '@assets/img/icon/instagram.svg';
+import iconMap from '@assets/img/icon/map-pin.svg?url';
+import iconInstagram from '@assets/img/icon/instagram.svg?url';
 import Logo from "./Logo.astro";
 
 const { pathname } = Astro.url;
@@ -22,7 +23,8 @@ const {
   <address>
     <ul>
       <li>{globals.address} <br>
-      (<a href={globals.mapUrl} target="_blank" id="mapClick"> {t("address.mapText")} 📍</a>)
+      <a href={globals.mapUrl} target="_blank" id="mapClick">{t("address.mapText")}<img src={iconMap} alt="Invitaly address" width="24" height="24"> </a>
+      
       </li>
       <li>
         <a href={`tel:${globals.phone}`} target="_blank" id="callClick">{globals.phone}</a>
@@ -43,8 +45,16 @@ const {
     display: flex;
     flex-direction: column;
   }
+
+  a#mapClick {
+    display: flex;
+    width: fit-content;
+    border-bottom: 1px dotted var(--c-primary);
+    margin-bottom: 1rem;
+  }
+
   h3, .social-link {
-    margin-top: var(--gutter);
+    margin-top: 1rem;
   }
   :global(.social-link) {
     display: flex;

@@ -5,29 +5,56 @@ import { t } from "i18next";
 
 <section>
   <h1 class="fadeUp observe">{t("hero.header")}</h1>
-  <div style="padding:52.73% 0 0 0;position:relative;">
-    <iframe src="https://player.vimeo.com/video/798735916?h=7275a952db&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;background=1&amp;autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" ></iframe>
+  <!-- <div style="padding:52.73% 0 0 0;position:relative;">
+    <iframe src="https://player.vimeo.com/video/798735916?h=7275a952db&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;background=1&amp;autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Invitaly EnoTrattoria" ></iframe>
+  </div> -->
+  <div class="video-wrapper">
+    <video autoplay muted loop>
+      <source
+        src="https://res.cloudinary.com/de8fnhgss/video/upload/c_scale,vc_auto,w_1920/v1676496850/Invitaly/invitaly_rvsk6p.mp4"
+        type="video/mp4" />
+    </video>
   </div>
-  <script src="https://player.vimeo.com/api/player.js"></script>
+  <!-- <script src="https://player.vimeo.com/api/player.js" defer ></script> -->
 </section>
 
 <style>
+
   section {
     padding-top: max(5rem, 7vw);
   }
+  .video-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+  }
+  video {
+    width: 100%;
+  }
+  @media (width < 500px) {
+    video {
+      width: 65rem;
+      height: 70vh;
+    }
+  }
+  /* div:has(iframe) {
+    overflow: hidden;
+  }
   iframe {
-    position:absolute;top:0;left:0;width:100%;height:100%;
+    position:absolute;top:0;width:100%;height:100%;
   }
   @media (width < 500px) {
     div:has(iframe) {
+      display: flex;
+      justify-content: center;
+      width: 100vw;
       height: 70vh;
-      overflow: hidden;
     }
     iframe {
-      left: -40vh;
       width: 65rem;
     }
-  }
+  } */
   div:has(img) {
     /* animations */
     animation-fill-mode: backwards;
@@ -59,5 +86,6 @@ import { t } from "i18next";
   }
 
 </style>
+<!-- <script src="src/assets/js/lazyframe.js" type="module"/> -->
 
   <!-- <script src="src/assets/js/loco.js" type="module"/> -->

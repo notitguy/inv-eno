@@ -1,6 +1,6 @@
 ---
 import { t } from "i18next";
-
+import { Image } from '@astrojs/image/components';
 import Arrow from "./Arrow.astro";
 const pizzeriaPhoto = 'https://pizza.invitaly.cz/assets/img/food/140422/21-03Invitaly_10.jpg'
 ---
@@ -11,7 +11,7 @@ const pizzeriaPhoto = 'https://pizza.invitaly.cz/assets/img/food/140422/21-03Inv
   <a href={t("pizzeria.url")} id="pizzeriaClick">
     <Arrow small buttonText={t("pizzeria.buttonText")} />
     <div class="zoom observe">
-      <img src={pizzeriaPhoto} alt="Invitaly Pizza" width="200">
+      <Image src={pizzeriaPhoto} width={400} height={600} format="avif" alt="Invitaly Pizza" />
     </div>
   </a>
 </section>
@@ -23,12 +23,12 @@ const pizzeriaPhoto = 'https://pizza.invitaly.cz/assets/img/food/140422/21-03Inv
     flex-direction: column;
 
     & .zoom {
-      display: grid;
-      place-content: center;
+      display: flex;
+      align-items: center;
       max-height: 15rem;
 
       & img {
-        width: auto;
+        height: auto;
       }
     }
   }

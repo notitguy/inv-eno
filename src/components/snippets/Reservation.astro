@@ -1,8 +1,8 @@
 ---
 import { t } from "i18next";
 import globals from '@assets/js/globals.json';
-import iconWolt from '@assets/img/branding/wolt.png';
-import iconInstagram from '@assets/img/icon/instagram.svg';
+import iconWolt from '@assets/img/branding/wolt.png?url';
+import iconInstagram from '@assets/img/icon/instagram.svg?url';
 
 interface Props {
   hours?: string;
@@ -18,7 +18,7 @@ const {
 ---
   <section>
     <h3 class="small">{t("reservation.reservation")}:</h3>
-    <ul style="margin-bottom: var(--gutter);">
+    <ul style="margin-bottom: 1rem;">
       <li><span>{t("reservation.call")}: </span> <a href={`tel:${globals.phone}`} target="_blank" id="callClick">{globals.phone}</a>
       </li>
       <li><span>Email: </span><a href={`mailto:${globals.email}`} target="_blank" id="emailClick">{globals.email}</a>

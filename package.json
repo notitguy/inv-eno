@@ -12,6 +12,7 @@
     "i18n:generate": "astro-i18next generate"
   },
   "dependencies": {
+    "@astrojs/image": "^0.15.0",
     "@astrojs/partytown": "^1.0.3",
     "@astrojs/preact": "^2.0.2",
     "astro": "^2.0.6",
