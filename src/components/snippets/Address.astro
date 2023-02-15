@@ -1,7 +1,8 @@
 ---
 import { t } from "i18next";
 
-import iconInstagram from '../../assets/img/icon/instagram.svg';
+import globals from '@assets/js/globals.json';
+import iconInstagram from '@assets/img/icon/instagram.svg';
 import Logo from "./Logo.astro";
 
 const { pathname } = Astro.url;
@@ -9,26 +10,28 @@ const { pathname } = Astro.url;
 interface Props {
   instagram?: boolean;
 }
-const { instagram = false } = Astro.props;
+const { 
+  instagram = false,
+} = Astro.props;
 ---
 <section>
   <a href={pathname}>
     <Logo />
   </a>
-  <h3 class="small">Invitaly EnoTrattoria</h3>
+  <h3 class="small">{globals.name}</h3>
   <address>
     <ul>
-      <li>Vězeňská 4, 110 00 Praha, Czechia<br>
-      (<a href="https://goo.gl/maps/QFHo98UqRi7Puspj6" target="_blank" id="mapClick"> {t("footer.openMap")} 📍</a>)
+      <li>{globals.address} <br>
+      (<a href={globals.mapUrl} target="_blank" id="mapClick"> {t("address.mapText")} 📍</a>)
       </li>
       <li>
-        <a href="tel:+420222313185" target="_blank" id="callClick">+420 222 313 185</a>
+        <a href={`tel:${globals.phone}`} target="_blank" id="callClick">{globals.phone}</a>
       </li>
       <li>
-        <a href="mailto:enotrattoria@invitaly.cz" target="_blank" id="emailClick">enotrattoria@invitaly.cz</a>
+        <a href={`mailto:${globals.email}`} target="_blank" id="emailClick">{globals.email}</a>
       </li>
     </ul>
-    { instagram && <a href="https://www.instagram.com/invitaly_enotrattoria/" target="_blank" class="social-link" id="instagramClick">
+    { instagram && <a href={globals.instagram} target="_blank" class="social-link" id="instagramClick">
       <img src={iconInstagram} alt="Invitaly instagram" width="28" height="28">
     </a> }
   </address>

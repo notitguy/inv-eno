@@ -1,13 +1,19 @@
 ---
 interface Props {
   small?: boolean;
+  text?: boolean;
+  buttonText?: string;
 }
-const { small = false } = Astro.props;
+const { small = false, text = false, buttonText } = Astro.props;
 ---
-<div class:list={[ "arrow", {small}]}>
-  <div class="arrow__body"></div>
-  <div class="arrow__head"></div>
-  <div class="arrow__circle"></div>
+
+<div class:list={[ "link", {small} ]}>
+  {buttonText && <span>{buttonText}</span>}
+  <div class:list={[ "arrow", {small}]}>
+    <div class="arrow__body"></div>
+    <div class="arrow__head"></div>
+    <div class="arrow__circle"></div>
+  </div>
 </div>
 
 <style is:global>
@@ -31,6 +37,31 @@ const { small = false } = Astro.props;
 
 <style>
 
+  .link {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--gutter);
+
+    &.small .arrow {
+      transform: scale(0.8);
+    }
+  }
+  span {
+    font-weight: 600;
+    margin: 0;
+  }
+
+  @media (width >= 768px) {
+    .link:not(.small) span {
+      display: none;
+    }
+  }
+  @media (width < 769px) {
+    .link:not(.small) .arrow {
+      transform: scale(0.8);
+    }
+  }
+
   .arrow {
     display: flex;
     align-items: center;
@@ -38,10 +69,6 @@ const { small = false } = Astro.props;
     padding-right: 1rem;
     --c-arrow: var(--c-primary);
     /* --easing: cubic-bezier(1, 0, 0, 1); */
-
-    &.small {
-      transform: scale(0.8);
-    }
 
     & * {
       /* animation-duration: 0.6s; */

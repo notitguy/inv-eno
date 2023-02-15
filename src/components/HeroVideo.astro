@@ -4,16 +4,29 @@ import { t } from "i18next";
 ---
 
 <section>
-  <h1 class="fadeUp observe">{t("hero.h1")}</h1>
+  <h1 class="fadeUp observe">{t("hero.header")}</h1>
   <div style="padding:52.73% 0 0 0;position:relative;">
-    <iframe src="https://player.vimeo.com/video/798735916?h=7275a952db&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;background=1&amp;autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+    <iframe src="https://player.vimeo.com/video/798735916?h=7275a952db&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;background=1&amp;autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" ></iframe>
   </div>
   <script src="https://player.vimeo.com/api/player.js"></script>
 </section>
 
 <style>
   section {
-    padding-top: max(5rem,   7vw);
+    padding-top: max(5rem, 7vw);
+  }
+  iframe {
+    position:absolute;top:0;left:0;width:100%;height:100%;
+  }
+  @media (width < 500px) {
+    div:has(iframe) {
+      height: 70vh;
+      overflow: hidden;
+    }
+    iframe {
+      left: -40vh;
+      width: 65rem;
+    }
   }
   div:has(img) {
     /* animations */
@@ -31,7 +44,7 @@ import { t } from "i18next";
     text-align: center;
     max-width: 50rem;
     padding: var(--gutter-l);
-    margin: var(--gutter) auto var(--gutter-xl);
+    margin: var(--gutter) auto var(--gutter-l);
   }
   
   @media (width < 769px) {

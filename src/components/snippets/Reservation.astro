@@ -1,37 +1,40 @@
 ---
 import { t } from "i18next";
-
-import iconWolt from '../../assets/img/branding/wolt.png';
-import iconInstagram from '../../assets/img/icon/instagram.svg';
+import globals from '@assets/js/globals.json';
+import iconWolt from '@assets/img/branding/wolt.png';
+import iconInstagram from '@assets/img/icon/instagram.svg';
 
 interface Props {
-  phone?: string;
-  email?: string;
   hours?: string;
   wolt?: boolean;
   instagram?: boolean;
 }
-const { phone = "+420 222 313 185", email = "enotrattoria@invitaly.cz", hours = "11:00 - 22:00", wolt = false, instagram = false } = Astro.props;
+const {
+  hours = "11:00 - 22:00",
+  wolt = false,
+  instagram = false 
+} = Astro.props;
+
 ---
   <section>
-    <h3 class="small">{t("footer.reservation")}:</h3>
+    <h3 class="small">{t("reservation.reservation")}:</h3>
     <ul style="margin-bottom: var(--gutter);">
-      <li><span>{t("footer.call")}: </span> <a href="tel:+420222313185" target="_blank" id="callClick">{phone}</a>
+      <li><span>{t("reservation.call")}: </span> <a href={`tel:${globals.phone}`} target="_blank" id="callClick">{globals.phone}</a>
       </li>
-      <li><span>Email: </span><a href={`mailto:${email}`} target="_blank" id="emailClick">{email}</a>
+      <li><span>Email: </span><a href={`mailto:${globals.email}`} target="_blank" id="emailClick">{globals.email}</a>
       </li>
       { wolt && <li>
-        {t("footer.order")}: <a href="https://wolt.com/en/cze/prague/restaurant/invitaly" target="_blank" rel="nofollow" id="orderClick">
+        {t("reservation.order")}: <a href={t("reservation.woltUrl")} target="_blank" rel="nofollow" id="orderClick">
           <img src={iconWolt} width="55px" height="20px" style="margin: -0.4rem 0 0 1rem;" alt="Order Invitaly">
         </a>
       </li> }
     </ul>
-    <h3 class="small">{t("footer.openingHours")}:</h3>
+    <h3 class="small">{t("reservation.openingHours")}:</h3>
     <div class="opening-hours">
-      <p>{t("footer.daysOpen")}:<br>{t("footer.daysClosed")}:</p>
-      <p>{hours}<br>{t("footer.closed")}</p>
+      <p>{t("reservation.daysOpen")}:<br>{t("reservation.daysClosed")}:</p>
+      <p>{hours}<br>{t("reservation.closed")}</p>
     </div>
-    { instagram && <a href="https://www.instagram.com/invitaly_enotrattoria/" target="_blank" class="social-link" id="instagramClick">
+    { instagram && <a href={globals.instagram} target="_blank" class="social-link" id="instagramClick">
       <img src={iconInstagram} alt="Invitaly instagram" width="28" height="28">
     </a> }
   </section>

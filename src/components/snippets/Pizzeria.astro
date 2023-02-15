@@ -1,16 +1,15 @@
 ---
+import { t } from "i18next";
+
 import Arrow from "./Arrow.astro";
 const pizzeriaPhoto = 'https://pizza.invitaly.cz/assets/img/food/140422/21-03Invitaly_10.jpg'
 ---
 
 <section class="pizzeria">
   <h3 class="small">Invitaly Piazzetta</h3>
-  <p>Visit our pizzera to taste delicious Italian pizzas.</p>
-  <a href="https://pizza.invitaly.cz" id="pizzeriaClick">
-    <div class="link">
-      <p>Go to pizzeria</p>
-      <Arrow small />
-    </div>
+  <p>{t("pizzeria.p")}</p>
+  <a href={t("pizzeria.url")} id="pizzeriaClick">
+    <Arrow small buttonText={t("pizzeria.buttonText")} />
     <div class="zoom observe">
       <img src={pizzeriaPhoto} alt="Invitaly Pizza" width="200">
     </div>
@@ -23,16 +22,6 @@ const pizzeriaPhoto = 'https://pizza.invitaly.cz/assets/img/food/140422/21-03Inv
     display: flex;
     flex-direction: column;
 
-    & .link {
-      display: flex;
-      align-items: center;
-      margin-bottom: var(--gutter);
-
-      & p {
-        font-weight: 600;
-        margin: 0;
-      }
-    }
     & .zoom {
       display: grid;
       place-content: center;

@@ -1,14 +1,16 @@
 ---
-import img1 from "../assets/img/body/20221027vezenska_piatti_12.jpg"
-import img2 from "../assets/img/body/INV2-217_004.jpg"
-import img3 from "../assets/img/body/INV2-217_063.jpg"
+import { t } from "i18next";
+
+import img1 from "@assets/img/body/20221027vezenska_piatti_12.jpg"
+import img2 from "@assets/img/body/INV2-217_004.jpg"
+import img3 from "@assets/img/body/INV2-217_063.jpg"
 ---
 
 <section class="grid container" id="about">
-  <h2>Bringing the best traditions</h2>
+  <h2>{t("about.header")}</h2>
   <div class="description">
-    <p>Illo voluptatibus laboriosam qui totam quasi velit assumenda sint mollitia dolore odio quidem, ut repudiandae cumque. Ipsum laudantium quia adipisci fugit ex praesentium nihil eveniet? Esse doloremque animi in facere.</p>
-    <p>Cum facere tempora dolor nam! Dicta non suscipit cumque rerum maiores ipsa accusantium esse error, soluta pariatur cum repudiandae at magni ducimus aliquam temporibus repellendus minima ex fugit, neque tempora.</p>
+    <p>{t("about.p1")}</p>
+    <p>{t("about.p2")}</p>
   </div>
   <div class="img1 toRight observe"><img src={img1} alt="Invitaly"></div>
   <div class="img2 zoom observe"><img src={img2} alt="Invitaly"></div>
