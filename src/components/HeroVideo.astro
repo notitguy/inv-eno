@@ -5,9 +5,6 @@ import { t } from "i18next";
 
 <section>
   <h1 class="fadeUp observe">{t("hero.header")}</h1>
-  <!-- <div style="padding:52.73% 0 0 0;position:relative;">
-    <iframe src="https://player.vimeo.com/video/798735916?h=7275a952db&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;background=1&amp;autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Invitaly EnoTrattoria" ></iframe>
-  </div> -->
   <div class="video-wrapper">
     <video autoplay muted playsinline loop>
       <source
@@ -15,7 +12,6 @@ import { t } from "i18next";
         type="video/mp4" />
     </video>
   </div>
-  <!-- <script src="https://player.vimeo.com/api/player.js" defer ></script> -->
 </section>
 
 <style>
@@ -23,6 +19,21 @@ import { t } from "i18next";
   section {
     padding-top: max(5rem, 7vw);
   }
+
+  h1 {
+    font-size: clamp(2rem, 4vw, 5rem);
+    text-align: center;
+    max-width: 50rem;
+    padding: var(--gutter-l);
+    margin: var(--gutter) auto var(--gutter-l);
+  }
+  
+  @media (width < 769px) {
+    h1 {
+      margin: 0 auto var(--gutter);
+    }
+  }
+
   .video-wrapper {
     display: flex;
     justify-content: center;
@@ -38,53 +49,4 @@ import { t } from "i18next";
       height: 70vh;
     }
   }
-  /* div:has(iframe) {
-    overflow: hidden;
-  }
-  iframe {
-    position:absolute;top:0;width:100%;height:100%;
-  }
-  @media (width < 500px) {
-    div:has(iframe) {
-      display: flex;
-      justify-content: center;
-      width: 100vw;
-      height: 70vh;
-    }
-    iframe {
-      width: 65rem;
-    }
-  } */
-  div:has(img) {
-    /* animations */
-    animation-fill-mode: backwards;
-    animation-duration: 1.6s;
-    animation-timing-function: var(--easing);
-    animation-delay: 0.1s;
-    animation-name: toLeft;
-  }
-  img {
-    object-fit: cover;
-  }
-  h1 {
-    font-size: clamp(2rem, 4vw, 5rem);
-    text-align: center;
-    max-width: 50rem;
-    padding: var(--gutter-l);
-    margin: var(--gutter) auto var(--gutter-l);
-  }
-  
-  @media (width < 769px) {
-    h1 {
-      margin: 0 auto var(--gutter);
-    }
-  }
-  @media (width < 1025px) {
-    img {
-      max-height: 70vh;
-    }
-  }
-
 </style>
-
-  <!-- <script src="src/assets/js/loco.js" type="module"/> -->

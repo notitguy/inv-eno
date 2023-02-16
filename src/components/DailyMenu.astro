@@ -1,13 +1,18 @@
+---
+import { t } from "i18next";
+
+---
+
 <section class="container" id="daily-menu">
-	<h3>Business Lunch Menu</h3>
+	<h3>{t("dailyMenu.header")}</h3>
 	<i>12:00 - 15:00</i>
 	<ul id="daily-menu-list">
-		<li class="first-course">First Course</li>
-		<li class="second-course">Main Course</li>
-		<li class="third-course">Third Course</li>
+		<li class="first-course">{t("dailyMenu.first")}</li>
+		<li class="second-course">{t("dailyMenu.second")}</li>
+		<li class="third-course">{t("dailyMenu.third")}</li>
 	</ul>
 	<hr>
-	<p>2 Courses: 600czk. 3 Courses: 700czk</p>
+	<p>{t("dailyMenu.price")}</p>
 </section>
 <span class="flag"></span>
 
