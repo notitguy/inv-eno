@@ -14,14 +14,6 @@ export default defineConfig({
     partytown({
       config: { 
         forward: ["dataLayer.push"],
-        resolveUrl: function (url, type) {
-          if (type === 'script') {
-            var proxyUrl = new URL('https://enotrattoria.invitaly.cz/');
-            proxyUrl.searchParams.append('url', url.href);
-            return proxyUrl;
-          }
-          return url;
-        }, 
       },
     }),
   ],
