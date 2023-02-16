@@ -16,6 +16,7 @@
     "@astrojs/partytown": "^1.0.3",
     "@astrojs/preact": "^2.0.2",
     "astro": "^2.0.6",
+    "astro-compress": "^1.1.33",
     "astro-i18next": "^1.0.0-beta.17",
     "preact": "^10.11.3"
   },
