@@ -29,3 +29,33 @@ import Pizzeria from "./snippets/Pizzeria.astro";
   }
   
 </style>
+
+<script type='application/ld+json' set:html={JSON.stringify (
+  {
+    "@context": "http://www.schema.org",
+    "@type": "Restaurant",
+    "name": "Invitaly Enotrattoria",
+    "url": "https://enotrattoria.invitaly.cz/",
+    "sameAs": [
+      "https://www.instagram.com/invitaly_enotrattoria/"
+    ],
+    "logo": "https://enotrattoria.invitaly.cz/_astro/invitaly_logo--small.569029e5.svg",
+    "priceRange": "$$$",
+    "description": "Italian restaurant with contemporary cuisine consisting fresh ingredients and quality seafood.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Vězeňská 911/4",
+      "addressLocality": "Prague",
+      "postalCode": "11000",
+      "addressCountry": "Czechia"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "50.090302935055355",
+      "longitude": "14.421661457671702"
+    },
+    "hasMap": "https://goo.gl/maps/QFHo98UqRi7Puspj6",
+    "openingHours": "Tu 11:00-22:00 We 11:00-22:00 Th 11:00-22:00 Fr 11:00-22:00 Sa 11:00-22:00",
+    "telephone": "+420222313185"
+  }
+)}/>
