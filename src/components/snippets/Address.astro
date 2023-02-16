@@ -23,17 +23,17 @@ const {
   <address>
     <ul>
       <li>{globals.address} <br>
-      <a href={globals.mapUrl} target="_blank" id="mapClick">{t("address.mapText")}<img src={iconMap} alt="Invitaly address" width="24" height="24"> </a>
+      <a href={globals.mapUrl} target="_blank" data-event="mapClick">{t("address.mapText")}<img src={iconMap} alt="Invitaly address" width="24" height="24"> </a>
       
       </li>
       <li>
-        <a href={`tel:${globals.phone}`} target="_blank" id="callClick">{globals.phone}</a>
+        <a href={`tel:${globals.phone}`} target="_blank" data-event="callClick">{globals.phone}</a>
       </li>
       <li>
-        <a href={`mailto:${globals.email}`} target="_blank" id="emailClick">{globals.email}</a>
+        <a href={`mailto:${globals.email}`} target="_blank" data-event="emailClick">{globals.email}</a>
       </li>
     </ul>
-    { instagram && <a href={globals.instagram} target="_blank" class="social-link" id="instagramClick">
+    { instagram && <a href={globals.instagram} target="_blank" class="social-link" data-event="instagramClick">
       <img src={iconInstagram} alt="Invitaly instagram" width="28" height="28">
     </a> }
   </address>
@@ -46,7 +46,7 @@ const {
     flex-direction: column;
   }
 
-  a#mapClick {
+  a[data-event="mapClick"] {
     display: flex;
     width: fit-content;
     border-bottom: 1px dotted var(--c-primary);

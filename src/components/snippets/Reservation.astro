@@ -19,12 +19,12 @@ const {
   <section>
     <h3 class="small">{t("reservation.reservation")}:</h3>
     <ul style="margin-bottom: 1rem;">
-      <li><span>{t("reservation.call")}: </span> <a href={`tel:${globals.phone}`} target="_blank" id="callClick">{globals.phone}</a>
+      <li><span>{t("reservation.call")}: </span> <a href={`tel:${globals.phone}`} target="_blank" data-event="callClick">{globals.phone}</a>
       </li>
-      <li><span>Email: </span><a href={`mailto:${globals.email}`} target="_blank" id="emailClick">{globals.email}</a>
+      <li><span>Email: </span><a href={`mailto:${globals.email}`} target="_blank" data-event="emailClick">{globals.email}</a>
       </li>
       { wolt && <li>
-        {t("reservation.order")}: <a href={t("reservation.woltUrl")} target="_blank" rel="nofollow" id="orderClick">
+        {t("reservation.order")}: <a href={t("reservation.woltUrl")} target="_blank" rel="nofollow" data-event="orderClick">
           <img src={iconWolt} width="55px" height="20px" style="margin: -0.4rem 0 0 1rem;" alt="Order Invitaly">
         </a>
       </li> }
@@ -34,7 +34,7 @@ const {
       <p>{t("reservation.daysOpen")}:<br>{t("reservation.daysClosed")}:</p>
       <p>{hours}<br>{t("reservation.closed")}</p>
     </div>
-    { instagram && <a href={globals.instagram} target="_blank" class="social-link" id="instagramClick">
+    { instagram && <a href={globals.instagram} target="_blank" class="social-link" data-event="instagramClick">
       <img src={iconInstagram} alt="Invitaly instagram" width="28" height="28">
     </a> }
   </section>

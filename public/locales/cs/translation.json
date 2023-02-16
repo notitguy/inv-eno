@@ -1,42 +1,43 @@
 {
   "site": {
-    "title": "EnoTrattoria - Italské Restaurace Invitaly",
-    "description": "CS meta"
+    "title": "EnoTrattoria - Invitaly, Italská Restaurace",
+    "description": "Italská restaurace s moderní gastronomií, vždy z čerstvých surovin a kvalitních mořských plodů."
   },
   "header": {
     "about": "O nás",
     "menu": "Menu",
+    "dailyMenu": "Obědové Menu",
     "contact": "Kontakty",
     "order": "Objednat"
   },
   "hero": {
-    "header": "Autentická Italská kuchyně",
+    "header": "Autentická Italská Kuchyně",
     "p": "Naše restaurace Invitaly spoléhá zejména na dovezených produktech z Itálie, abychom dosáhli nejlepší autentičnosti italské kuchyně."
   },
   "about": {
-    "header": "Bringing the best traditions",
-    "p1": "Illo voluptatibus laboriosam qui totam quasi velit assumenda sint mollitia dolore odio quidem, ut repudiandae cumque. Ipsum laudantium quia adipisci fugit ex praesentium nihil eveniet? Esse doloremque animi in facere.",
-    "p2": "Cum facere tempora dolor nam! Dicta non suscipit cumque rerum maiores ipsa accusantium esse error, soluta pariatur cum repudiandae at magni ducimus aliquam temporibus repellendus minima ex fugit, neque tempora."
+    "header": "Moderní italská kuchyně",
+    "p1": "Ochutnejte tradiční italskou gastronomii s nádechem moderny. Používáme ty nejkvalitnější a ty nejčerstvější ingredience, které vybíráme s velkou péčí. Naše menu se mění dle sezónosti, které hlavně připravujeme tak, aby vyhovovalo všem mlsným jazýčkům.",
+    "p2": "Invitaly EnoTrattoria se nachází v nejprestižnější čtvrti - Josefově, v srdci Prahy. Vytříbená lokalita kombinuje zrestaurované interiéry s italským vlivem a skrývá v sobě několik nečekaných překvapení."
   },
   "menu": {
-    "header": "Our menu",
-    "p": "The Invitaly kitchen relies mostly on imported products from Italy to meet the authenticity of Italian cuisine.",
-    "buttonText": "See menu"
+    "header": "Naše menu",
+    "p": "Naším hlavním cílem je poskytovat široký výběr italské kuchyně, abyste si mohli vychutnat lahodná jídla, mořské plody s rodinou, přáteli a kolegy.",
+    "buttonText": "Otevřít menu"
   },
   "dailyMenu": {
     "header": "Business Lunch Menu",
-    "first": "First Course",
-    "second": "Main Course",
-    "third": "Third Course",
-    "price": "2 Courses: 600czk. 3 Courses: 700czk."
+    "first": "První chod",
+    "second": "Hlavní chod",
+    "third": "Třetí chod",
+    "price": "2 chody: 600Kč. 3 chody: 700Kč."
   },
   "review": {
-    "header": "Breathtaking experience",
-    "q": "Excellent, unassuming and wonderful find. Great variety and fine value tasting menu. Exciting food with high quality presentation, service and inventiveness.",
-    "caption": "—Aldous Huxley, Source"
+    "header": "Ohromující zážitek",
+    "q": "Úžasný, nenáročný a překvapivý objev. Velká rozmanitost a skvělé degustační menu. Úžasné jídlo s velmi kvalitní prezentací a vynalézavostí šéfkuchaře.",
+    "caption": "—Jiří Štochl"
   },
   "address": {
-    "mapText": "Mapa"
+    "mapText": "Otevřít mapu"
   },
   "reservation": {
     "reservation": "Rezervace",
@@ -49,8 +50,8 @@
     "woltUrl": "https://wolt.com/cs/cze/prague/restaurant/invitaly"
   },
   "pizzeria": {
-    "p": "Visit our sister reastaurant to taste delicious Italian pizzas and pastas",
+    "p": "Navštivte naši sesterskou restauraci a ochutnejte vynikající italské pizzy a těstoviny.",
     "url": "https://pizza.invitaly.cz/",
-    "buttonText":"Go to pizzeria"
+    "buttonText":"Do pizzerie"
   }
 }

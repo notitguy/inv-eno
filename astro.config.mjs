@@ -6,6 +6,6 @@ import image from '@astrojs/image';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://enotrattoria.invitaly.cz',
+  site: 'https://enotrattoria.invitaly.cz/',
   integrations: [astroI18next(), preact(), partytown(), image()]
 });

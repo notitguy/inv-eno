@@ -1,11 +1,12 @@
 {
   "site": {
-    "title": "EnoTrattoria - Invitaly Italian Restaurant",
-    "description": "EN meta!"
+    "title": "EnoTrattoria - Invitaly, Italian Restaurant",
+    "description": "Italian restaurant with contemporary cuisine consisting fresh ingredients and quality seafood."
   },
   "header": {
     "about": "About",
     "menu": "Menu",
+    "dailyMenu": "Lunch Menu",
     "contact": "Contact",
     "order": "Order"
   },
@@ -14,13 +15,13 @@
     "p": "The Invitaly kitchen relies mostly on imported products from Italy to meet the authenticity of Italian cuisine."
   },
   "about": {
-    "header": "Bringing the best traditions",
-    "p1": "Illo voluptatibus laboriosam qui totam quasi velit assumenda sint mollitia dolore odio quidem, ut repudiandae cumque. Ipsum laudantium quia adipisci fugit ex praesentium nihil eveniet? Esse doloremque animi in facere.",
-    "p2": "Cum facere tempora dolor nam! Dicta non suscipit cumque rerum maiores ipsa accusantium esse error, soluta pariatur cum repudiandae at magni ducimus aliquam temporibus repellendus minima ex fugit, neque tempora."
+    "header": "Contemporary Italian Cuisine",
+    "p1": "A taste of the most genuine Italian gastronomic tradition with a touch of innovation. Only the best quality ingredients and freshest product are selected with great care and attention, reflecting in the seasonally changing menus that are wide-ranging to suit all palates.",
+    "p2": "Invitaly EnoTrattoria is located in the most prestigious neighborhood - Josefov, in the heart of Prague. The refined location combines restored interiors with an architectural influence and hides a few unexpected surprises within."
   },
   "menu": {
     "header": "Our Menu",
-    "p": "Sit tempora minus asperiores blanditiis autem non beatae incidunt, est nobis aperiam neque alias, esse earum eaque consectetur corrupti numquam odit officia.",
+    "p": "Our aim is to provide a wide selection of Italian cuisine to enjoy mouth-watering meals, seafood with family, friends and colleagues.",
     "buttonText": "See menu"
   },
   "dailyMenu": {
@@ -31,9 +32,9 @@
     "price": "2 Courses: 600czk. 3 Courses: 700czk."
   },
   "review": {
-    "header": "Breathtaking experience",
-    "q": "Excellent, unassuming and wonderful find. Great variety and fine value tasting menu. Exciting food with high quality presentation, service and inventiveness.",
-    "caption": "—Aldous Huxley, Source"
+    "header": "Astounding experience",
+    "q": "Fabulous, unassuming and surprising find. Great variety and fine tasting menu. Exciting food with high quality presentation and chef's inventiveness.",
+    "caption": "—Jiří Štochl"
   },
   "address": {
     "mapText": "Open map"
@@ -49,7 +50,7 @@
     "woltUrl": "https://wolt.com/en/cze/prague/restaurant/invitaly"
   },
   "pizzeria": {
-    "p": "Visit our sister reastaurant to taste delicious Italian pizzas and pastas",
+    "p": "Visit our sister restaurant to taste delicious Italian pizzas and pastas.",
     "url": "https://pizza.invitaly.cz/en/",
     "buttonText":"Go to pizzeria"
   }

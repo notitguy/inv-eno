@@ -3,7 +3,7 @@
   --gutter: 1.5rem;
   --gutter-l: 3rem;
   --gutter-xl: 6rem;
-  --font: 'Sarabun', sans-serif; /*not used*/
+  /* --font: 'Sarabun', sans-serif; */
   --font: 'Quicksand', sans-serif;
   --font-heading: 'Nlgstr', serif;
   --easing: cubic-bezier(0.76, 0, 0.24, 1); /*easeInOutQuart*/

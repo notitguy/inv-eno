@@ -14,7 +14,7 @@ const { menuUrl = "https://invitaly.cz/files/menu_enotrattoria.pdf" } = Astro.pr
 ---
 
 <section class="container" id="menu">
-  <a href={menuUrl} target="_blank" id="menuDownload">
+  <a href={menuUrl} target="_blank" data-event="menuDownload">
     <div>
       <h2>{t("menu.header")}</h2>
       <p>{t("menu.p")}</p>

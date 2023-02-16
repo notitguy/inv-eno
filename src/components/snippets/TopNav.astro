@@ -24,6 +24,10 @@ const { mobile = false, fadeUpMenu = false, observe = false } = Astro.props;
     { mobile && <Image src={imgNav2} width={400} alt="" /> }
   </li>
   <li>
+    <a href="#daily-menu">{t("header.dailyMenu")}{ mobile && <Arrow small /> }</a>
+    { mobile && <Image src={imgNav1} width={400} alt="" /> }
+  </li>
+  <li>
     <a href="#footer">{t("header.contact")}{ mobile && <Arrow small /> }</a>
     { mobile && <Image src={imgNav3} width={400} alt="" /> }
   </li>
