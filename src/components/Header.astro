@@ -45,15 +45,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   nav.desktop-nav {
     flex: 1; /* places logo in the middle */
   }
-    @media (width < 769px) {
-
-      header .container {
-        padding-block: 0.5rem;
-      }
+    @media (width < 1200px) {
       nav.desktop-nav {
         display: none;
       }
     } 
+    @media (width < 769px) {
+      header .container {
+        padding-block: 0.5rem;
+      }
+    }
+
   header {
     z-index: 1;
   }
