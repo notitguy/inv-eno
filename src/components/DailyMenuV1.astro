@@ -1,0 +1,140 @@
+---
+import { t } from "i18next";
+
+---
+
+<section class="container" id="daily-menu">
+	<h3>{t("dailyMenu.header")}</h3>
+	<i>12:00 - 15:00</i>
+	<ul id="daily-menu-list"></ul>
+	<hr>
+</section>
+<span class="flag"></span>
+
+<style>
+
+	h3 {
+		font-size: clamp(2rem, 4vw, 3rem);
+	}
+	i {
+		background-color: var(--c-primary-light);
+		padding: 0.3rem 0.5rem;
+		margin-left: 0.5rem;
+	}
+	#daily-menu-list {
+		margin-bottom: var(--gutter);
+	}
+	li[class] {
+		font-family: var(--font-heading);
+		font-size: 1.3rem;
+		color: var(--c-primary);
+		line-height: 1;
+		margin-top: var(--gutter);
+	}
+
+	hr {
+		border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), hsl(120deg 19% 80%), rgba(0, 0, 0, 0));
+		margin-block: var(--gutter);
+	}
+
+	p {
+		font-weight: 600;
+	}
+
+	.flag {
+		display: flex;
+		justify-content: space-between;
+		width: 3rem; height: 0.5rem;
+		margin: 0 auto;
+		transform: skew(350deg);
+
+		&::before, &::after {
+			content: '';
+			display: block;
+			background-color: #21a151;
+			width: 1rem; height: 0.5rem;
+		}
+		&::after {
+			background-color: #cc3043;
+		}
+	}
+
+	@media (width >= 768px) {
+		section {
+			width: min(100%, 50rem);
+			text-align: center;
+		}
+		#daily-menu-list {
+			margin: 0 auto;
+		}
+		li[class] {
+			margin-bottom: 0.5rem;
+		}
+	}
+
+</style>
+
+<style is:inline>
+	
+	#daily-menu-list li:not([class]) {
+		padding: 0.7rem;
+		line-height: 1.5;
+		border-block: 1px solid transparent;
+		display: flex;
+    justify-content: space-between;
+	}
+	#daily-menu-list li:not([class]):hover {
+		background-color: hsl(0 0% 99% / 50%);
+		border-block: 1px solid hsl(0 0% 95%);
+	}
+	@media (width < 769px) {
+		#daily-menu-list li:not([class]) {
+			padding: 0.4rem 0 0;
+		}
+		span {
+			min-width: 55px; 
+		}
+	}
+</style>
+
+<script>
+
+	const header = document.querySelector('#daily-menu h3');
+	const ul = document.querySelector('#daily-menu-list');
+	let dailyMenu = "https://opensheet.elk.sh/1989oGb99j8MAJWv-yvlM-iZK88Pa2dNL8CG8Dd58T8g/Czech"
+	if (document.documentElement.lang === "en") {
+		dailyMenu = "https://opensheet.elk.sh/1989oGb99j8MAJWv-yvlM-iZK88Pa2dNL8CG8Dd58T8g/English"
+	}
+
+	async function getMenu() {
+    try {
+        let res = await fetch(dailyMenu);
+        return await res.json();
+    } catch (error) {
+        console.log('yo, not fetching here', error);
+    }
+	}
+
+	async function renderMenu() {
+    let menu = await getMenu();
+		menu.map(item => {
+			const listName = document.createElement("li");
+			const itemName = document.createTextNode(item.name);
+			const spanPrice = document.createElement("span");
+			const itemPrice = document.createTextNode(item.price);
+			spanPrice.append(itemPrice, " Kč");
+			listName.append(itemName,spanPrice);
+			ul.appendChild(listName);
+		});
+		const spanDate = document.createElement("span");
+		const date = document.createTextNode(menu[0].date);
+		spanDate.append(date);
+		spanDate.classList.add("date");
+		header.after(spanDate);
+	}
+
+	renderMenu();
+
+</script>
